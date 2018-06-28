@@ -11,11 +11,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NotificationsDebug.mxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NotificationsDebug.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="48" column="168" selection-start-line="48" selection-start-column="168" selection-end-line="48" selection-end-column="168" />
+            <state relative-caret-position="563">
+              <caret line="63" column="66" lean-forward="true" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extension.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -59,7 +68,6 @@
         <option value="$PROJECT_DIR$/notifications/src/main/com/github/airext/core/notifications.as" />
         <option value="$PROJECT_DIR$/notifications/build/build.properties" />
         <option value="$PROJECT_DIR$/notifications/build/platform-android.xml" />
-        <option value="$PROJECT_DIR$/notifications/build/extension.xml" />
         <option value="$PROJECT_DIR$/notifications/build/build.xml" />
         <option value="$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/NotificationSound.as" />
         <option value="$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/NotificationCenterAuthorizationOptions.as" />
@@ -73,6 +81,7 @@
         <option value="$PROJECT_DIR$/notifications/build/platform-ios.xml" />
         <option value="$PROJECT_DIR$/notifications-debug/NotificationsDebug-app.xml" />
         <option value="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" />
+        <option value="$PROJECT_DIR$/notifications/build/extension.xml" />
       </list>
     </option>
   </component>
@@ -82,11 +91,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-2560" />
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1417" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1640" />
+    <option name="y" value="413" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -331,12 +340,12 @@
       <option name="presentableId" value="Default" />
       <updated>1530171592891</updated>
       <workItem from="1530171597129" duration="13633000" />
-      <workItem from="1530206398896" duration="371000" />
+      <workItem from="1530206398896" duration="1081000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14004000" />
+    <option name="totallyTimeSpent" value="14714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="23" width="2560" height="1417" extended-state="6" />
@@ -352,11 +361,11 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15448768" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15448768" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -433,13 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="53" selection-start-column="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -558,8 +560,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="48" column="168" selection-start-line="48" selection-start-column="168" selection-end-line="48" selection-end-column="168" />
+        <state relative-caret-position="563">
+          <caret line="63" column="66" lean-forward="true" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
