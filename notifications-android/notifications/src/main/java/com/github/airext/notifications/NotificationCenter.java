@@ -1,5 +1,6 @@
 package com.github.airext.notifications;
 
+import android.Manifest;
 import android.app.*;
 import android.content.ComponentName;
 import android.content.Context;
@@ -251,7 +252,7 @@ public class NotificationCenter {
         int largeIconId = Resources.getResourseIdByName(context.getPackageName(), "mipmap", "icon");
 
         Uri soundUri = null;
-        if (sound != null) {
+        if (sound != null && context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             File audioFile = AssetsUtil.copyAssetToTempFileIfNeeded(context, sound);
             if (audioFile != null) {
                 soundUri = ContentProviderUtil.getAudioContentUri(context, audioFile);

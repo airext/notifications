@@ -2,6 +2,9 @@ package com.github.airext.notifications;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
+import com.github.airext.bridge.Bridge;
+import com.github.airext.bridge.exceptions.BridgeInstantiationException;
+import com.github.airext.bridge.exceptions.BridgeNotFoundException;
 import com.github.airext.notifications.functions.*;
 
 import java.util.HashMap;
@@ -25,6 +28,14 @@ public class ExtensionContext extends FREContext {
         functions.put("canOpenSettings", new CanOpenSettingsFunction());
         functions.put("openSettings", new OpenSettingsFunction());
         functions.put("createNotificationChannel", new CreateNotificationChannelFunction());
+
+        try {
+            Bridge.setup(functions);
+        } catch (BridgeNotFoundException e) {
+            e.printStackTrace();
+        } catch (BridgeInstantiationException e) {
+            e.printStackTrace();
+        }
 
         return functions;
     }

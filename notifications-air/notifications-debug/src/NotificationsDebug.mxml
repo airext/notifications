@@ -6,6 +6,14 @@
 
     <fx:Script>
         <![CDATA[
+        import com.github.airext.Notifications;
+        import com.github.airext.notifications.NotificationCenterAuthorizationOptions;
+        import com.github.airext.notifications.NotificationCenterSettings;
+        import com.github.airext.notifications.NotificationContent;
+        import com.github.airext.notifications.NotificationRequest;
+        import com.github.airext.notifications.NotificationSound;
+        import com.github.airext.notifications.TimeIntervalNotificationTrigger;
+
         private function log(...args): void {
             outputText.text += args + "\n";
             outputText.verticalScrollPosition = outputText.maxVerticalScrollPosition;
@@ -13,11 +21,50 @@
         }
 
         private function isSupportedTapped(): void {
-//            log("isSupported:" + Permissions.isSupported);
+            log("isSupported:" + Notifications.isSupported);
         }
 
         private function extensionVersionTapped(): void {
-//            log("extensionVersion:" + Permissions.extensionVersion);
+            log("extensionVersion:" + Notifications.extensionVersion);
+        }
+
+        private function sendLocalNotification(): void {
+            var content: NotificationContent = new NotificationContent();
+            content.title = "Title";
+            content.body = "Message";
+            content.userInfo = {message: "Hello, world!"};
+            content.sound = new NotificationSound("alert_17.wav");
+//                content.sound = new NotificationSound("alert_tone.aiff");
+//                content.sound = new NotificationSound("alert_tone.mp3");
+
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8);
+            var request: NotificationRequest = new NotificationRequest(1, content, trigger);
+
+            Notifications.shared.add(request, function (error: Error): void {
+                if (error) {
+                    log(error);
+                } else {
+                    log("Notification requested: " + request);
+                }
+            });
+        }
+
+        private function localNotificationRequestAuthorization(): void {
+            var options: int = NotificationCenterAuthorizationOptions.alert.rawValue | NotificationCenterAuthorizationOptions.sound.rawValue;
+            Notifications.requestAuthorizationWithOptions(options, function (status: String, error: Error = null) {
+                log(status, error);
+            });
+        }
+
+        private function localNotificationGetNotificationSettings(): void {
+            Notifications.getNotificationSettingsWithCompletion(function (settings: NotificationCenterSettings, error: Error = null) {
+                if (settings) {
+                    log(settings.authorizationStatus);
+                } else {
+                    log("Error: " + error);
+                }
+
+            });
         }
         ]]>
     </fx:Script>
@@ -33,6 +80,22 @@
         <f:layout><f:VerticalLayout horizontalAlign="justify" gap="10" /></f:layout>
         <f:Button label="Is Supported" triggered="isSupportedTapped()" />
         <f:Button label="Extensions Version" triggered="extensionVersionTapped()" />
+
+        <f:Label text="Local Notifications">
+            <f:textRendererProperties>
+                <fx:Object>
+                    <fx:textAlign>center</fx:textAlign>
+                </fx:Object>
+            </f:textRendererProperties>
+        </f:Label>
+
+        <f:Button label="sendLocalNotification" triggered="sendLocalNotification()" />
+        <f:Button label="localNotificationEnabled" triggered="log(Notifications.isEnabled)" />
+        <f:Button label="localNotificationCanOpenSettings" triggered="log(Notifications.canOpenSettings)" />
+        <f:Button label="localNotificationOpenSettings" triggered="Notifications.openSettings()" />
+        <f:Button label="localNotificationRequestAuthorization" triggered="localNotificationRequestAuthorization()" />
+        <f:Button label="localGetNotificationSettings" triggered="localNotificationGetNotificationSettings()" />
+
     </f:ScrollContainer>
 
     <f:ScrollText id="outputText" height="100">

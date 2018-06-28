@@ -22,7 +22,7 @@ public class NotificationCenterSettings implements CallResultValue {
     @Override
     public FREObject toFREObject() throws FRETypeMismatchException, FREInvalidObjectException, FREWrongThreadException, IllegalStateException {
         try {
-            FREObject settings = FREObject.newObject("com.github.airext.notification.NotificationCenterSettings", null);
+            FREObject settings = FREObject.newObject("com.github.airext.notifications.NotificationCenterSettings", null);
             settings.setProperty("authorizationStatus", FREObject.newObject(getAuthorizationStatus()));
             return settings;
         } catch (FREASErrorException e) {

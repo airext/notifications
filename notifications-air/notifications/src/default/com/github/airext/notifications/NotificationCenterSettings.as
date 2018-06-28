@@ -2,13 +2,9 @@
  * Created by max.rozdobudko@gmail.com on 12/10/17.
  */
 package com.github.airext.notifications {
-import flash.net.registerClassAlias;
+import flash.permissions.PermissionStatus;
 
 public class NotificationCenterSettings {
-
-    {
-        registerClassAlias("com.github.airext.notifications.NotificationCenterSettings", NotificationCenterSettings);
-    }
 
     public function NotificationCenterSettings() {
         super();

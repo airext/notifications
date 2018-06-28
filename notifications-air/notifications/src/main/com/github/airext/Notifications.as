@@ -174,7 +174,15 @@ public class Notifications extends EventDispatcher {
         }, 30);
     }
 
-    // Sending Notifications
+    //--------------------------------------------------------------------------
+    //
+    //  Methods
+    //
+    //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  MARK: Schedule Notifications
+    //-------------------------------------
 
     public function add(request: NotificationRequest, callback: Function): void {
         trace("NotificationCenter", "adding notification request");
@@ -238,16 +246,6 @@ public class Notifications extends EventDispatcher {
     private function activateHandler(event: Event): void {
         inForeground();
     }
-
-    //--------------------------------------------------------------------------
-    //
-    //  Methods
-    //
-    //--------------------------------------------------------------------------
-
-    //-------------------------------------
-    //  MARK: API
-    //-------------------------------------
 
     //-------------------------------------
     //  MARK: Dispose

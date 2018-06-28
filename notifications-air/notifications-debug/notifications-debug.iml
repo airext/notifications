@@ -11,13 +11,23 @@
             <entry library-id="437cc81e-7585-4033-8dd0-a28e4a00ecfe">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="4e43caa0-81ad-4a1a-acac-3f5a90263875">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="3.5.x" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
-        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NotificationsDebug-app.xml" package-file-name="NotificationsDebug" />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NotificationsDebug-app.xml" package-file-name="NotificationsDebug">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
+          </files-to-package>
+        </packaging-android>
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NotificationsDebug-app.xml" package-file-name="NotificationsDebug">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
+          </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/cert/rozd/max.rozdobudko.dev.p12" provisioning-profile-path="$USER_HOME$/cert/rozd/whateverdev.mobileprovision" />
         </packaging-ios>
       </configuration>
@@ -51,6 +61,17 @@
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$USER_HOME$/sdks/feathers/3.5.0-starling2.4/frameworks/themes/MetalWorksMobileTheme" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="4e43caa0-81ad-4a1a-acac-3f5a90263875" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
       </library>
     </orderEntry>
   </component>
