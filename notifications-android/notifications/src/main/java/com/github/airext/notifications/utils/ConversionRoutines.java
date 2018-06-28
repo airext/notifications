@@ -48,8 +48,9 @@ public class ConversionRoutines {
     public static long[] convertFREObjectToLongs(FREObject object) {
         try {
             FREArray array = (FREArray) object;
-            long[] result = new long[(int)array.getLength()];
-            for (int i = 0; i < array.getLength(); i++) {
+            long length = array != null ? array.getLength() : 0;
+            long[] result = new long[(int)length];
+            for (int i = 0; i < length; i++) {
                 result[i] = array.getObjectAt(i).getAsInt();
             }
             return result;

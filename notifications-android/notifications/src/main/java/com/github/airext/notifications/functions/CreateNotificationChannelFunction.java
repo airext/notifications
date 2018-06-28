@@ -28,7 +28,7 @@ public class CreateNotificationChannelFunction implements FREFunction {
             FREObject channel = args[0];
             id               = channel.getProperty("id").getAsString();
             name             = channel.getProperty("name").getAsString();
-            importance       = channel.getProperty("importance").getAsInt();
+            importance       = channel.getProperty("importance") != null ? channel.getProperty("importance").getProperty("rawValue").getAsInt() : -1;
             enableLights     = channel.getProperty("enableLights").getAsBool();
             lightColor       = channel.getProperty("lightColor").getAsInt();
             enableVibration  = channel.getProperty("enableVibration").getAsBool();

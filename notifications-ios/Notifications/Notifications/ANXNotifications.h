@@ -9,14 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "FlashRuntimeExtensions.h"
 
-int isOperatingSystemAtLeast(int major, int minor, int patch) {
-    NSOperatingSystemVersion version;
-    version.majorVersion = major;
-    version.minorVersion = minor;
-    version.patchVersion = patch;
-    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:version];
-}
-
 @interface ANXNotifications : NSObject
 
 #pragma mark Shared Instance
@@ -38,5 +30,7 @@ int isOperatingSystemAtLeast(int major, int minor, int patch) {
 -(void) dispatchError: (NSString *)code;
 
 -(void) dispatchStatus: (NSString *)code;
+
+#pragma mark Utils
 
 @end

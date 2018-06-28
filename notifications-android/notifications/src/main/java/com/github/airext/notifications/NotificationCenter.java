@@ -35,7 +35,7 @@ import static android.content.Context.ALARM_SERVICE;
 
 public class NotificationCenter {
 
-    private static final String TAG = "NotificationCenter";
+    private static final String TAG = "ANXNotifications";
 
     // Keys
 
@@ -44,6 +44,7 @@ public class NotificationCenter {
     private static final String bodyKey       = "com.github.airext.notifications.NotificationCenter.body";
     private static final String soundKey      = "com.github.airext.notifications.NotificationCenter.sound";
     private static final String userInfoKey   = "com.github.airext.notifications.NotificationCenter.params";
+    private static final String channelIdKey  = "com.github.airext.notifications.NotificationCenter.channelId";
 
     private static final int REQUEST_PERMISSIONS_CODE = 42;
 
@@ -98,7 +99,7 @@ public class NotificationCenter {
     public static Boolean canOpenSettings(Context context) {
         Log.d(TAG, "canOpenSettings");
 
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
         Uri uri = Uri.fromParts("package", context.getPackageName(), null);
         intent.setData(uri);
         return intent.resolveActivity(context.getPackageManager()) != null;
@@ -107,7 +108,7 @@ public class NotificationCenter {
     public static void openSettings(Context context) {
         Log.d(TAG, "openSettings");
 
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
         Uri uri = Uri.fromParts("package", context.getPackageName(), null);
         intent.setData(uri);
         context.startActivity(intent);
@@ -183,7 +184,7 @@ public class NotificationCenter {
 
     // MARK: Schedule notification
 
-    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, String userInfo) {
+    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, String userInfo, String channelId) {
         Log.d(TAG, "scheduleNotification");
 
         // cancel already scheduled reminders
@@ -202,6 +203,7 @@ public class NotificationCenter {
         intent.putExtra(bodyKey, body);
         intent.putExtra(soundKey, sound);
         intent.putExtra(userInfoKey, userInfo);
+        intent.putExtra(channelIdKey, channelId);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -231,11 +233,12 @@ public class NotificationCenter {
     public static void showNotification(Context context, Intent intent) {
         Log.d(TAG, "showNotification");
 
-        int identifier = intent.getIntExtra(identifierKey, 0);
-        String title   = intent.getStringExtra(titleKey);
-        String content = intent.getStringExtra(bodyKey);
-        String sound   = intent.getStringExtra(soundKey);
-        String userInfo = intent.getStringExtra(userInfoKey);
+        int identifier   = intent.getIntExtra(identifierKey, 0);
+        String title     = intent.getStringExtra(titleKey);
+        String content   = intent.getStringExtra(bodyKey);
+        String sound     = intent.getStringExtra(soundKey);
+        String userInfo  = intent.getStringExtra(userInfoKey);
+        String channelId = intent.getStringExtra(channelIdKey);
 
         Intent notificationIntent = null;
         try {
@@ -263,7 +266,7 @@ public class NotificationCenter {
             soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }
 
-        Notification notification = new Notification.Builder(context)
+        Notification.Builder builder = new Notification.Builder(context)
             .setSmallIcon(smallIconId)
             .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), largeIconId))
             .setContentTitle(title)
@@ -271,8 +274,13 @@ public class NotificationCenter {
             .setAutoCancel(true)
             .setWhen(System.currentTimeMillis())
             .setSound(soundUri)
-            .setContentIntent(pendingIntent)
-            .build();
+            .setContentIntent(pendingIntent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder.setChannelId(channelId);
+        }
+
+        Notification notification = builder.build();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(identifier, notification);

@@ -44,6 +44,8 @@
     <extensions>
         <extensionID>com.github.airext.Bridge</extensionID>
         <extensionID>com.github.airext.Notifications</extensionID>
+        <extensionID>com.github.airext.Permissions</extensionID>
+        <extensionID>com.distriqt.CustomResources</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->
@@ -255,6 +257,10 @@
                 <!--<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>-->
 
                 <application android:enabled="true">
+
+                    <!-- PermissionsRequestActivity used to handle request permissions -->
+                    <activity android:name="com.github.airext.permissions.activities.PermissionsRequestActivity"
+                              android:theme="@style/Permissions.Internal.Theme.Transparent" />
 
                     <!-- LocalNotificationBroadcastReceiver used to handle alarms -->
                     <receiver android:name="com.github.airext.notifications.receivers.LocalNotificationBroadcastReceiver" />

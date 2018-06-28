@@ -162,6 +162,12 @@ FREObject ANXNotificationsOpenSettings(FREContext context, void* functionData, u
     return NULL;
 }
 
+FREObject ANXNotificationsCreateNotificationChannel(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    NSLog(@"ANXNotificationsCreateNotificationChannel");
+    NSLog(@"Warning: Creation Notification Center is not supported on iOS");
+    return NULL;
+}
+
 #pragma mark ContextInitialize/ContextFinalizer
 
 void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet){
@@ -221,6 +227,10 @@ void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, F
     func[11].name = (const uint8_t*) "openSettings";
     func[11].functionData = NULL;
     func[11].function = &ANXNotificationsOpenSettings;
+
+    func[12].name = (const uint8_t*) "createNotificationChannel";
+    func[12].functionData = NULL;
+    func[12].function = &ANXNotificationsCreateNotificationChannel;
 
     // setup bridge
 

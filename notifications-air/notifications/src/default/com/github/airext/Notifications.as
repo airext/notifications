@@ -3,6 +3,7 @@
  */
 package com.github.airext {
 import com.github.airext.core.notifications;
+import com.github.airext.notifications.NotificationChannel;
 import com.github.airext.notifications.NotificationRequest;
 
 import flash.events.EventDispatcher;
@@ -106,6 +107,10 @@ public class Notifications extends EventDispatcher {
     //-------------------------------------
     //  MARK: API
     //-------------------------------------
+
+    public function createNotificationChannel(channel: NotificationChannel): void {
+        trace("Notifications extension is not supported for " + Capabilities.os);
+    }
 
     public function add(request: NotificationRequest, callback: Function): void {
         trace("Notifications extension is not supported for " + Capabilities.os);

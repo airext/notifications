@@ -29,8 +29,16 @@ public class NotificationRequest {
         return _trigger;
     }
 
+    private var _channelId: String;
+    public function get channelId(): String {
+        return _channelId;
+    }
+    public function setChannelId(value: String): void {
+        _channelId = value;
+    }
+
     public function toString(): String {
-        return '[NotificationRequest(identifier="'+identifier+'", content="'+content+'", trigger="'+trigger+'")]';
+        return '[NotificationRequest(identifier="'+identifier+'", content="'+content+'", trigger="'+trigger+'", channelId="'+channelId+'")]';
     }
 }
 }

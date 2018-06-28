@@ -5,6 +5,7 @@ package com.github.airext {
 import com.github.airext.bridge.bridge;
 import com.github.airext.core.notifications;
 import com.github.airext.notifications.NotificationCenterEvent;
+import com.github.airext.notifications.NotificationChannel;
 import com.github.airext.notifications.NotificationRequest;
 
 import flash.desktop.NativeApplication;
@@ -16,6 +17,7 @@ import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 import flash.permissions.PermissionStatus;
+import flash.system.Capabilities;
 import flash.utils.clearTimeout;
 import flash.utils.setTimeout;
 
@@ -181,28 +183,45 @@ public class Notifications extends EventDispatcher {
     //--------------------------------------------------------------------------
 
     //-------------------------------------
+    //  MARK: Notification Channel
+    //-------------------------------------
+
+    public function createNotificationChannel(channel: NotificationChannel): void {
+        switch (Capabilities.version.substr(0, 3)) {
+            case "AND":
+                context.call("createNotificationChannel", channel);
+                break;
+            default:
+                trace("[notifications] Warning: creation of Notification Channel is not supported on " + Capabilities.os);
+                break;
+        }
+    }
+
+    //-------------------------------------
     //  MARK: Schedule Notifications
     //-------------------------------------
 
     public function add(request: NotificationRequest, callback: Function): void {
-        trace("NotificationCenter", "adding notification request");
+        trace("Notifications", "adding notification request");
         bridge(context).call("addRequest", request).callback(function (error: Error, value: Object): void {
             callback(error);
         });
-        trace("NotificationCenter", "notification request added");
+        trace("Notifications", "notification request added");
     }
 
     public function removePendingNotificationRequests(identifiers: Vector.<int>): void {
-        trace("NotificationCenter.removePendingNotificationRequests");
+        trace("Notifications.removePendingNotificationRequests");
         context.call("removePendingNotificationRequests", identifiers);
     }
 
     public function removeAllPendingNotificationRequests(): void {
-        trace("NotificationCenter.notificationCenterRemoveAllPendingNotificationRequests");
+        trace("Notifications.notificationCenterRemoveAllPendingNotificationRequests");
         context.call("removeAllPendingNotificationRequests");
     }
 
-    // Work with background
+    //-------------------------------------
+    //  MARK: Work with background
+    //-------------------------------------
 
     notifications function inForeground(): void {
         context.call("inForeground");
@@ -211,6 +230,23 @@ public class Notifications extends EventDispatcher {
     notifications function inBackground(): void {
         context.call("inBackground");
     }
+
+    //-------------------------------------
+    //  MARK: Dispose
+    //-------------------------------------
+
+    public function dispose(): void {
+        if (_context) {
+            _context.dispose();
+        }
+        instance = null;
+    }
+
+    //--------------------------------------------------------------------------
+    //
+    //  Event handlers
+    //
+    //--------------------------------------------------------------------------
 
     //  StatusEvent handler
 
@@ -245,17 +281,6 @@ public class Notifications extends EventDispatcher {
 
     private function activateHandler(event: Event): void {
         inForeground();
-    }
-
-    //-------------------------------------
-    //  MARK: Dispose
-    //-------------------------------------
-
-    public function dispose(): void {
-        if (_context) {
-            _context.dispose();
-        }
-        instance = null;
     }
 }
 }

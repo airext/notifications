@@ -86,7 +86,7 @@ static ANXNotificationCenterDelegate* _delegate = nil;
         objc_registerClassPair(swizzledAppDelegateClass);
         object_setClass(appDelegate, swizzledAppDelegateClass);
         
-        if (isOperatingSystemAtLeast(10, 0, 0)) {
+        if (@available(iOS 10.0, *)) {
             _delegate = [[ANXNotificationCenterDelegate alloc] init];
             UNUserNotificationCenter.currentNotificationCenter.delegate = _delegate;
         }
@@ -128,7 +128,7 @@ void didRegisterUserNotificationSettings(id self, SEL _cmd, UIApplication* appli
 }
 
 + (BOOL)isEnabled {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         return YES;
     } else {
         UIUserNotificationSettings* settings = UIApplication.sharedApplication.currentUserNotificationSettings;
@@ -145,7 +145,7 @@ void didRegisterUserNotificationSettings(id self, SEL _cmd, UIApplication* appli
 }
 
 + (void)getNotificationSettingsWithCompletion:(GetNotificationSettingsCompletion)completion {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             NSString* authorizationStatus = @"unknown";
             if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
@@ -165,7 +165,7 @@ void didRegisterUserNotificationSettings(id self, SEL _cmd, UIApplication* appli
 static RequestAuthorizationCompletion _authorizationCompletionHandler;
 
 + (void)requestAuthorizationWithOPtions:(NSInteger)options withCompletion:(RequestAuthorizationCompletion)completion {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:completion];
     } else {
         _authorizationCompletionHandler = completion;
@@ -198,7 +198,7 @@ static BOOL _isInForeground;
 # pragma mark Schedule Notification
 
 - (void)addNotificationRequestWithIdentifier:(NSString*)identifier timestamp:(NSTimeInterval)timestamp title:(NSString*)title body:(NSString*)body  soundNamed:(NSString*)soundName userInfo:(NSString*)userinfo withCompletion:(AddNotificationRequestCompletion)completion {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             switch (settings.authorizationStatus) {
                 case UNAuthorizationStatusAuthorized : {
@@ -245,7 +245,7 @@ static BOOL _isInForeground;
 }
 
 - (void)removePendingNotificationRequestWithIdentifiers:(NSArray*)identifiers {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
                 [UNUserNotificationCenter.currentNotificationCenter removePendingNotificationRequestsWithIdentifiers:identifiers];
@@ -256,7 +256,7 @@ static BOOL _isInForeground;
 }
 
 - (void)removeAllPendingRequests {
-    if (isOperatingSystemAtLeast(10, 0, 0)) {
+    if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
                 [UNUserNotificationCenter.currentNotificationCenter removeAllPendingNotificationRequests];
@@ -273,7 +273,7 @@ static BOOL _isInForeground;
 
 @implementation ANXNotificationCenterDelegate
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler API_AVAILABLE(ios(10.0)) {
     
     NSLog(@"ANXNotificationCenter userNotificationCenter:willPresentNotification:withCompletionHandler");
     
@@ -286,7 +286,7 @@ static BOOL _isInForeground;
     [ANXNotifications.sharedInstance dispatch:@"Notifications.Notification.ReceivedInForeground" withLevel:params];
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler API_AVAILABLE(ios(10.0)) {
     NSLog(@"ANXNotificationCenter userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler");
     
     UNNotification* notification = response.notification;
