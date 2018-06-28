@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50A7456420E51AF600F07854 /* ANXNotificationsFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */; };
+		50A7456520E51AF600F07854 /* ANXNotificationsFacade.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */; };
+		50A7457120E51BD700F07854 /* ANXNotificationsConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457020E51BD700F07854 /* ANXNotificationsConversionRoutines.m */; };
+		50A7457420E51DBD00F07854 /* ANXNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457320E51DBD00F07854 /* ANXNotifications.m */; };
+		50A7457A20E51F2F00F07854 /* ANXNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		50A7455D20E51AF600F07854 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				50A7456520E51AF600F07854 /* ANXNotificationsFacade.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		50A7455F20E51AF600F07854 /* libANXNotifications.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXNotifications.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationsFacade.h; sourceTree = "<group>"; };
+		50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationsFacade.m; sourceTree = "<group>"; };
+		50A7456C20E51B4900F07854 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		50A7456D20E51B8300F07854 /* ANXBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXBridge.h; sourceTree = "<group>"; };
+		50A7456E20E51B8300F07854 /* ANXBridgeCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXBridgeCall.h; sourceTree = "<group>"; };
+		50A7456F20E51BD700F07854 /* ANXNotificationsConversionRoutines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationsConversionRoutines.h; sourceTree = "<group>"; };
+		50A7457020E51BD700F07854 /* ANXNotificationsConversionRoutines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationsConversionRoutines.m; sourceTree = "<group>"; };
+		50A7457220E51DBD00F07854 /* ANXNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotifications.h; sourceTree = "<group>"; };
+		50A7457320E51DBD00F07854 /* ANXNotifications.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotifications.m; sourceTree = "<group>"; };
+		50A7457820E51F2F00F07854 /* ANXNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANXNotificationCenter.h; sourceTree = "<group>"; };
+		50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationCenter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50A7455C20E51AF600F07854 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50A7455620E51AF600F07854 = {
+			isa = PBXGroup;
+			children = (
+				50A7456120E51AF600F07854 /* Notifications */,
+				50A7456020E51AF600F07854 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50A7456020E51AF600F07854 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50A7455F20E51AF600F07854 /* libANXNotifications.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50A7456120E51AF600F07854 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				50A7456B20E51B2F00F07854 /* Supporting Files */,
+				50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */,
+				50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */,
+				50A7456F20E51BD700F07854 /* ANXNotificationsConversionRoutines.h */,
+				50A7457020E51BD700F07854 /* ANXNotificationsConversionRoutines.m */,
+				50A7457220E51DBD00F07854 /* ANXNotifications.h */,
+				50A7457320E51DBD00F07854 /* ANXNotifications.m */,
+				50A7457820E51F2F00F07854 /* ANXNotificationCenter.h */,
+				50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		50A7456B20E51B2F00F07854 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50A7456D20E51B8300F07854 /* ANXBridge.h */,
+				50A7456E20E51B8300F07854 /* ANXBridgeCall.h */,
+				50A7456C20E51B4900F07854 /* FlashRuntimeExtensions.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50A7455E20E51AF600F07854 /* ANXNotifications */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications" */;
+			buildPhases = (
+				50A7455B20E51AF600F07854 /* Sources */,
+				50A7455C20E51AF600F07854 /* Frameworks */,
+				50A7455D20E51AF600F07854 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ANXNotifications;
+			productName = Notifications;
+			productReference = 50A7455F20E51AF600F07854 /* libANXNotifications.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50A7455720E51AF600F07854 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Max Rozdobudko";
+				TargetAttributes = {
+					50A7455E20E51AF600F07854 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 50A7455A20E51AF600F07854 /* Build configuration list for PBXProject "Notifications" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 50A7455620E51AF600F07854;
+			productRefGroup = 50A7456020E51AF600F07854 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50A7455E20E51AF600F07854 /* ANXNotifications */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50A7455B20E51AF600F07854 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A7456420E51AF600F07854 /* ANXNotificationsFacade.m in Sources */,
+				50A7457A20E51F2F00F07854 /* ANXNotificationCenter.m in Sources */,
+				50A7457420E51DBD00F07854 /* ANXNotifications.m in Sources */,
+				50A7457120E51BD700F07854 /* ANXNotificationsConversionRoutines.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		50A7456620E51AF600F07854 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50A7456720E51AF600F07854 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50A7456920E51AF600F07854 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NYZLFKA5XF;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50A7456A20E51AF600F07854 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NYZLFKA5XF;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50A7455A20E51AF600F07854 /* Build configuration list for PBXProject "Notifications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A7456620E51AF600F07854 /* Debug */,
+				50A7456720E51AF600F07854 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A7456920E51AF600F07854 /* Debug */,
+				50A7456A20E51AF600F07854 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50A7455720E51AF600F07854 /* Project object */;
+}
