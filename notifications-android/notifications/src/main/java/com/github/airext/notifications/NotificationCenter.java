@@ -14,7 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
-import com.distriqt.extension.Resources;
+import com.github.airext.notifications.utils.Resources;
 import com.github.airext.Notifications;
 import com.github.airext.notifications.data.NotificationCenterSettings;
 import com.github.airext.notifications.receivers.LocalNotificationBroadcastReceiver;

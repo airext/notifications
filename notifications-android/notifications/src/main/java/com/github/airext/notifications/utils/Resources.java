@@ -16,12 +16,15 @@
  * @copyright	http://distriqt.com/copyright/license.txt
  *
  */
-package com.distriqt.extension;
+package com.github.airext.notifications.utils;
 
 import android.util.Log;
 
 import java.lang.reflect.Field;
 
+/**
+ * Original from com.distriqt.extension.Resources
+ */
 public class Resources
 {
 
