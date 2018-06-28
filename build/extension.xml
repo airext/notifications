@@ -1,0 +1,37 @@
+<extension xmlns="http://ns.adobe.com/air/extension/24.0">
+  <id>com.github.airext.Notifications</id>
+  <versionNumber>0.0.1</versionNumber>
+  <platforms>
+    <platform name="iPhone-ARM">
+      <applicationDeployment>
+        <nativeLibrary>libANXNotifications.a</nativeLibrary>
+        <initializer>ANXNotificationsInitializer</initializer>
+        <finalizer>ANXNotificationsFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="iPhone-x86">
+      <applicationDeployment>
+        <nativeLibrary>libANXNotificationsSimulator.a</nativeLibrary>
+        <initializer>ANXNotificationsInitializer</initializer>
+        <finalizer>ANXNotificationsFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>libANXNotifications.jar</nativeLibrary>
+        <initializer>com.github.airext.Notifications</initializer>
+        <finalizer>com.github.airext.Notifications</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="Android-x86">
+      <applicationDeployment>
+        <nativeLibrary>libANXNotifications.jar</nativeLibrary>
+        <initializer>com.github.airext.Notifications</initializer>
+        <finalizer>com.github.airext.Notifications</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="default">
+      <applicationDeployment/>
+    </platform>
+  </platforms>
+</extension>
