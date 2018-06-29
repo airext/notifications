@@ -321,7 +321,7 @@ static BOOL _isInForeground;
 
 - (FREObject)toFREObject {
     FREObject resultObject;
-    if (FRENewObject((const uint8_t *)"com.github.airext.notification.NotificationCenterSettings", 0, NULL, &resultObject, NULL) != FRE_OK) {
+    if (FRENewObject((const uint8_t *)"com.github.airext.notifications.NotificationCenterSettings", 0, NULL, &resultObject, NULL) != FRE_OK) {
         return NULL;
     }
     if (FRESetObjectProperty(resultObject, (const uint8_t *)"authorizationStatus", [ANXNotificationsConversionRoutines convertNSStringToFREObject:_authorizationStatus], NULL) != FRE_OK) {

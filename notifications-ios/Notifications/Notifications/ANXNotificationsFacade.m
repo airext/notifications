@@ -21,6 +21,7 @@
 #pragma mark API
 
 FREObject ANXNotificationsIsSupported(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    NSLog(@"ANXNotificationsIsSupported");
     return [ANXNotificationsConversionRoutines convertBoolToFREObject:ANXNotifications.sharedInstance.isSupported];
 }
 
@@ -170,10 +171,10 @@ FREObject ANXNotificationsCreateNotificationChannel(FREContext context, void* fu
 
 #pragma mark ContextInitialize/ContextFinalizer
 
-void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet){
+void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet) {
     NSLog(@"ANXNotificationsContextInitializer");
 
-    *numFunctionsToSet = 12;
+    *numFunctionsToSet = 13;
 
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToSet));
 
@@ -237,17 +238,20 @@ void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, F
     [ANXBridge setup:numFunctionsToSet functions:&func];
 
     *functionsToSet = func;
+
+    // Store reference to the context
+
+    ANXNotifications.sharedInstance.context = ctx;
 }
 
-void ANXNotificationsContextFinalizer(FREContext ctx)
-{
+void ANXNotificationsContextFinalizer(FREContext ctx){
     NSLog(@"ANXNotificationsContextFinalizer");
+    ANXNotifications.sharedInstance.context = nil;
 }
 
 #pragma mark Initializer/Finalizer
 
-void ANXNotificationsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
-{
+void ANXNotificationsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet){
     NSLog(@"ANXNotificationsInitializer");
 
     *extDataToSet = NULL;
@@ -256,7 +260,6 @@ void ANXNotificationsInitializer(void** extDataToSet, FREContextInitializer* ctx
     *ctxFinalizerToSet = &ANXNotificationsContextFinalizer;
 }
 
-void ANXNotificationsFinalizer(void* extData)
-{
+void ANXNotificationsFinalizer(void* extData){
     NSLog(@"ANXNotificationsFinalizer");
 }
