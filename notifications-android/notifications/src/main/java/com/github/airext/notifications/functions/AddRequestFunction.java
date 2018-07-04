@@ -1,6 +1,7 @@
 package com.github.airext.notifications.functions;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.util.Log;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
@@ -29,7 +30,8 @@ public class AddRequestFunction implements FREFunction {
         int identifier   = 0;
         String title     = null;
         String body      = null;
-        String soundName = null;
+        String sound     = null;
+        int color        = Notification.COLOR_DEFAULT;
         String userInfo  = null;
         int timeInterval = 0;
         String channelId = null;
@@ -38,15 +40,14 @@ public class AddRequestFunction implements FREFunction {
             FREObject request = args[0];
             FREObject content = request.getProperty("content");
             FREObject trigger = request.getProperty("trigger");
-            FREObject sound   = content.getProperty("sound");
-
-            channelId = ConversionRoutines.readStringPropertyFrom(request, "channelId");
 
             identifier = ConversionRoutines.readIntPropertyFrom(request, "identifier", 0);
+            channelId  = ConversionRoutines.readStringPropertyFrom(request, "channelId");
 
             title = ConversionRoutines.readStringPropertyFrom(content, "title");
             body  = ConversionRoutines.readStringPropertyFrom(content, "body");
-            soundName = ConversionRoutines.readStringPropertyFrom(sound, "named");
+            sound = ConversionRoutines.readStringPropertyFrom(content, "sound");
+            color = ConversionRoutines.readIntPropertyFrom(content, "color", Notification.COLOR_DEFAULT);
 
             FREObject userInfoAsFREObject = content.callMethod("userInfoAsJSON", null);
             if (userInfoAsFREObject != null) {
@@ -70,7 +71,7 @@ public class AddRequestFunction implements FREFunction {
         Calendar calendar = Calendar.getInstance();
         long timestamp = calendar.getTimeInMillis() + timeInterval * 1000;
 
-        NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, soundName, userInfo, channelId);
+        NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, sound, color, userInfo, channelId);
 
         DispatchQueue.dispatch_async(activity, new Runnable() {
             @Override

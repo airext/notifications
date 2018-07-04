@@ -43,6 +43,7 @@ public class NotificationCenter {
     private static final String titleKey      = "com.github.airext.notifications.NotificationCenter.title";
     private static final String bodyKey       = "com.github.airext.notifications.NotificationCenter.body";
     private static final String soundKey      = "com.github.airext.notifications.NotificationCenter.sound";
+    private static final String colorKey      = "com.github.airext.notifications.NotificationCenter.color";
     private static final String userInfoKey   = "com.github.airext.notifications.NotificationCenter.params";
     private static final String channelIdKey  = "com.github.airext.notifications.NotificationCenter.channelId";
 
@@ -184,7 +185,7 @@ public class NotificationCenter {
 
     // MARK: Schedule notification
 
-    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, String userInfo, String channelId) {
+    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, int color, String userInfo, String channelId) {
         Log.d(TAG, "scheduleNotification");
 
         // cancel already scheduled reminders
@@ -202,6 +203,7 @@ public class NotificationCenter {
         intent.putExtra(titleKey, title);
         intent.putExtra(bodyKey, body);
         intent.putExtra(soundKey, sound);
+        intent.putExtra(colorKey, color);
         intent.putExtra(userInfoKey, userInfo);
         intent.putExtra(channelIdKey, channelId);
 
@@ -237,6 +239,7 @@ public class NotificationCenter {
         String title     = intent.getStringExtra(titleKey);
         String content   = intent.getStringExtra(bodyKey);
         String sound     = intent.getStringExtra(soundKey);
+        int color        = intent.getIntExtra(colorKey, Notification.COLOR_DEFAULT);
         String userInfo  = intent.getStringExtra(userInfoKey);
         String channelId = intent.getStringExtra(channelIdKey);
 
@@ -245,6 +248,7 @@ public class NotificationCenter {
             notificationIntent = new Intent(context, Class.forName(context.getPackageName() + ".AppEntry"));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            return;
         }
         notificationIntent.putExtra(userInfoKey, userInfo);
         notificationIntent.putExtra(identifierKey, identifier);
@@ -274,6 +278,7 @@ public class NotificationCenter {
             .setAutoCancel(true)
             .setWhen(System.currentTimeMillis())
             .setSound(soundUri)
+            .setColor(color)
             .setContentIntent(pendingIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
