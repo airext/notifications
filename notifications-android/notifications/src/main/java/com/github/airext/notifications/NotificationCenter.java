@@ -186,7 +186,7 @@ public class NotificationCenter {
     // MARK: Schedule notification
 
     public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, int color, String userInfo, String channelId, Boolean exactTime) {
-        Log.d(TAG, "scheduleNotification");
+        Log.d(TAG, "scheduleNotification(" + identifier + "," + timestamp + "," + title + "," + body + "," + sound + "," + color + "," + userInfo + "," + channelId + "," + exactTime +")");
 
         // cancel already scheduled reminders
         removePendingNotificationWithId(context, identifier);

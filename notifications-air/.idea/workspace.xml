@@ -14,8 +14,26 @@
       <file leaf-file-name="NotificationsDebug.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+            <state relative-caret-position="135">
+              <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationSound.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/NotificationSound.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="library.swf" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane!/library.swf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="610">
+              <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -29,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeIntervalNotificationTrigger.as" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimeIntervalNotificationTrigger.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/TimeIntervalNotificationTrigger.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="315">
               <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -44,8 +62,8 @@
       <file leaf-file-name="TimeIntervalNotificationTrigger.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/TimeIntervalNotificationTrigger.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="24" />
+            <state relative-caret-position="330">
+              <caret line="24" selection-start-line="17" selection-start-column="4" selection-end-line="24" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -71,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extension.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="extension.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            <state relative-caret-position="30">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -166,10 +184,10 @@
         <option value="$PROJECT_DIR$/notifications-debug/NotificationsDebug-app.xml" />
         <option value="$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/NotificationContent.as" />
         <option value="$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/NotificationContent.as" />
-        <option value="$PROJECT_DIR$/notifications/build/extension.xml" />
         <option value="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" />
         <option value="$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/TimeIntervalNotificationTrigger.as" />
         <option value="$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/TimeIntervalNotificationTrigger.as" />
+        <option value="$PROJECT_DIR$/notifications/build/extension.xml" />
       </list>
     </option>
   </component>
@@ -190,6 +208,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,6 +281,19 @@
             <path>
               <item name="notifications-air" type="b2602c69:ProjectViewProjectNode" />
               <item name="notifications-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="ane" type="462c0819:PsiDirectoryNode" />
+              <item name="com.github.airext.Notifications.ane" type="ab9368bb:PsiFileNode" />
+            </path>
+            <path>
+              <item name="notifications-air" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notifications-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="ane" type="462c0819:PsiDirectoryNode" />
+              <item name="com.github.airext.Notifications.ane" type="ab9368bb:PsiFileNode" />
+              <item name="library.swf" type="ab9368bb:PsiFileNode" />
+            </path>
+            <path>
+              <item name="notifications-air" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notifications-debug" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -272,8 +305,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,12 +465,13 @@
       <workItem from="1530286622516" duration="26000" />
       <workItem from="1530685811865" duration="1976000" />
       <workItem from="1531165922777" duration="781000" />
-      <workItem from="1531203968890" duration="746000" />
+      <workItem from="1531203968890" duration="920000" />
+      <workItem from="1531206216385" duration="1534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24626000" />
+    <option name="totallyTimeSpent" value="26334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,37 +487,37 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32903227" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32903227" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18192919" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18376069" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.08852259" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.28172043" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28172043" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32903227" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.3840049" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Designer" order="0" />
       <window_info anchor="bottom" id="Find" order="5" />
@@ -494,7 +526,7 @@
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="right" id="Maven Projects" order="2" />
@@ -529,13 +561,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/notifications-debug/NotificationsDebug-app.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3915">
-          <caret line="261" column="112" selection-start-line="261" selection-start-column="112" selection-end-line="261" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -759,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
@@ -863,24 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/notifications/TimeIntervalNotificationTrigger.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="24" />
+        <state relative-caret-position="330">
+          <caret line="24" selection-start-line="17" selection-start-column="4" selection-end-line="24" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -896,11 +900,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/TimeIntervalNotificationTrigger.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="315">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/src/default/com/github/airext/notifications/NotificationSound.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>

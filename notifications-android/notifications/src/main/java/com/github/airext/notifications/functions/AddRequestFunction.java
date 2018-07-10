@@ -30,7 +30,7 @@ public class AddRequestFunction implements FREFunction {
         int identifier    = 0;
         String title      = null;
         String body       = null;
-        String sound      = null;
+        String soundName  = null;
         int color         = Notification.COLOR_DEFAULT;
         String userInfo   = null;
         int timeInterval  = 0;
@@ -47,8 +47,12 @@ public class AddRequestFunction implements FREFunction {
 
             title = ConversionRoutines.readStringPropertyFrom(content, "title");
             body  = ConversionRoutines.readStringPropertyFrom(content, "body");
-            sound = ConversionRoutines.readStringPropertyFrom(content, "sound");
             color = ConversionRoutines.readIntPropertyFrom(content, "color", Notification.COLOR_DEFAULT);
+
+            FREObject sound = content.getProperty("sound");
+            if (sound != null) {
+                soundName = ConversionRoutines.readStringPropertyFrom(sound, "named");
+            }
 
             FREObject userInfoAsFREObject = content.callMethod("userInfoAsJSON", null);
             if (userInfoAsFREObject != null) {
@@ -73,7 +77,7 @@ public class AddRequestFunction implements FREFunction {
         Calendar calendar = Calendar.getInstance();
         long timestamp = calendar.getTimeInMillis() + timeInterval * 1000;
 
-        NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, sound, color, userInfo, channelId, exactTime);
+        NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, soundName, color, userInfo, channelId, exactTime);
 
         DispatchQueue.dispatch_async(activity, new Runnable() {
             @Override
