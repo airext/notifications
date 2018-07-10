@@ -185,7 +185,7 @@ public class NotificationCenter {
 
     // MARK: Schedule notification
 
-    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, int color, String userInfo, String channelId) {
+    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, int color, String userInfo, String channelId, Boolean exactTime) {
         Log.d(TAG, "scheduleNotification");
 
         // cancel already scheduled reminders
@@ -210,7 +210,11 @@ public class NotificationCenter {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+        if (exactTime) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+        } else {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+        }
     }
 
     public static void removePendingNotificationWithId(Context context, int identifier) {

@@ -66,7 +66,8 @@
 //                content.sound = new NotificationSound("alert_tone.aiff");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(3);
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(0);
+            trigger.exactTime = true;
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
 
@@ -74,7 +75,7 @@
                 if (error) {
                     log(error);
                 } else {
-                    log("Notification requested: " + request);
+                    log("Notification requested: " + request, "at", new Date());
                 }
             });
         }
@@ -98,6 +99,18 @@
         }
         ]]>
     </fx:Script>
+
+    <f:creationComplete><![CDATA[
+            import com.github.airext.notifications.NotificationCenterEvent;
+
+            Notifications.shared.addEventListener(NotificationCenterEvent.NOTIFICATION_RECEIVED_IN_FOREGROUND, function (event: NotificationCenterEvent): void {
+                log("Notification received in foreground at", new Date());
+            });
+
+            Notifications.shared.addEventListener(NotificationCenterEvent.NOTIFICATION_RECEIVED_IN_BACKGROUND, function (event: NotificationCenterEvent): void {
+                log("Notification received in background at", new Date());
+            });
+        ]]></f:creationComplete>
 
     <f:layout>
         <f:VerticalLayout />
