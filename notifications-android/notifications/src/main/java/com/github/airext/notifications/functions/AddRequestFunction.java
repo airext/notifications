@@ -27,15 +27,15 @@ public class AddRequestFunction implements FREFunction {
 
         Activity activity = context.getActivity();
 
-        int identifier    = 0;
-        String title      = null;
-        String body       = null;
-        String soundName  = null;
-        int color         = Notification.COLOR_DEFAULT;
-        String userInfo   = null;
-        int timeInterval  = 0;
-        String channelId  = null;
-        Boolean exactTime = false;
+        int identifier      = 0;
+        String title        = null;
+        String body         = null;
+        String soundName    = null;
+        int color           = Notification.COLOR_DEFAULT;
+        String userInfo     = null;
+        double timeInterval = 0.0;
+        String channelId    = null;
+        Boolean exactTime   = false;
 
         try {
             FREObject request = args[0];
@@ -60,7 +60,7 @@ public class AddRequestFunction implements FREFunction {
             }
 
             if (trigger != null) {
-                timeInterval = ConversionRoutines.readIntPropertyFrom(trigger, "timeInterval", 0);
+                timeInterval = ConversionRoutines.readDoublePropertyFrom(trigger, "timeInterval", 0);
                 exactTime    = ConversionRoutines.readBooleanPropertyFrom(trigger, "exactTime", false);
             }
 
@@ -75,7 +75,7 @@ public class AddRequestFunction implements FREFunction {
         }
 
         Calendar calendar = Calendar.getInstance();
-        long timestamp = calendar.getTimeInMillis() + timeInterval * 1000;
+        long timestamp = calendar.getTimeInMillis() + (long)timeInterval * 1000;
 
         NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, soundName, color, userInfo, channelId, exactTime);
 

@@ -45,6 +45,19 @@ public class ConversionRoutines {
         return defaultValue;
     }
 
+    public static double readDoublePropertyFrom(FREObject object, String property, int defaultValue) {
+        try {
+            FREObject value = object.getProperty(property);
+            if (value != null) {
+                return value.getAsDouble();
+            } else {
+                return defaultValue;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return defaultValue;
+    }
 
     public static boolean readBooleanPropertyFrom(FREObject object, String property, boolean defaultValue) {
         try {

@@ -245,6 +245,8 @@ static BOOL _isInForeground;
 }
 
 - (void)removePendingNotificationRequestWithIdentifiers:(NSArray*)identifiers {
+    NSLog(@"ANXNotificationCenter removePendingNotificationRequestWithIdentifiers: %@", identifiers);
+    
     if (@available(iOS 10.0, *)) {
         [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {

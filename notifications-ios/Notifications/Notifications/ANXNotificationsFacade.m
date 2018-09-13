@@ -138,10 +138,9 @@ FREObject ANXNotificationsRemovePendingNotificationRequests(FREContext context, 
         for (uint32_t index = 0; index < identifierCount; index++) {
             FREObject identifierObject;
             FREGetArrayElementAt(argv[0], index, &identifierObject);
-
-            [identifiers addObject:[NSString stringWithFormat:@"(long)%li", (long)[ANXNotificationsConversionRoutines convertFREObjectToNSInteger:identifierObject withDefault:0]]];
+            NSString* identifier = [NSString stringWithFormat:@"%li", (long)[ANXNotificationsConversionRoutines convertFREObjectToNSInteger:identifierObject withDefault:0]];
+            [identifiers addObject:identifier];
         }
-
         [ANXNotificationCenter.sharedInstance removePendingNotificationRequestWithIdentifiers:identifiers];
     }
     return NULL;

@@ -66,7 +66,7 @@
 //                content.sound = new NotificationSound("alert_tone.aiff");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(0);
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8);
             trigger.exactTime = true;
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
@@ -79,6 +79,14 @@
                 }
             });
         }
+
+        //
+
+        public function cancelLatestRequestIfExists(): void {
+            Notifications.shared.removePendingNotificationRequests(new <int>[1]);
+        }
+
+        //
 
         private function localNotificationRequestAuthorization(): void {
             var options: int = NotificationCenterAuthorizationOptions.alert.rawValue | NotificationCenterAuthorizationOptions.sound.rawValue;
@@ -134,6 +142,7 @@
 
         <f:Button label="createNotificationChannel" triggered="createNotificationChannel()" />
         <f:Button label="addRequest" triggered="addRequest()" />
+        <f:Button label="cancelRequest" triggered="cancelLatestRequestIfExists()" />
         <f:Button label="IsEnabled" triggered="log(Notifications.isEnabled)" />
         <f:Button label="CanOpenSettings" triggered="log(Notifications.canOpenSettings)" />
         <f:Button label="OpenSettings" triggered="Notifications.openSettings()" />
