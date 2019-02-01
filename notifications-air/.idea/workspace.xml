@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83111d26-7cec-4b4f-a322-dc6dc2cb10ee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/NotificationsDebug-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/NotificationsDebug-app.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/functions/AddRequestFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/functions/AddRequestFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/utils/ConversionRoutines.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/utils/ConversionRoutines.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,14 +14,14 @@
     <session id="175264886">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -71,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="735">
+              <caret line="130" column="84" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -98,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="555">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -119,7 +112,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2790">
+            <state relative-caret-position="1244">
               <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
             </state>
           </provider>
@@ -189,10 +182,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2560" />
     <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1417" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -447,12 +439,13 @@
       <workItem from="1534444357205" duration="1284000" />
       <workItem from="1536170162608" duration="38000" />
       <workItem from="1536845384264" duration="526000" />
-      <workItem from="1536853603618" duration="1249000" />
+      <workItem from="1536853603618" duration="1589000" />
+      <workItem from="1537209286161" duration="1491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35243000" />
+    <option name="totallyTimeSpent" value="37074000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,16 +457,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="23" width="2560" height="1417" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.117553614" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18192919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.28096676" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28096676" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
@@ -484,7 +478,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info active="true" anchor="right" id="Ant Build" order="1" visible="true" weight="0.08816521" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.13553114" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -699,24 +693,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2790">
+        <state relative-caret-position="1244">
           <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="735">
+          <caret line="130" column="84" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
         </state>
       </provider>
     </entry>
