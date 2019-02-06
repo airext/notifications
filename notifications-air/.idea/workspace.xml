@@ -3,55 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="83111d26-7cec-4b4f-a322-dc6dc2cb10ee" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="175264886">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="9" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="mxml" value="66" />
-          <entry key="xml" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="ActionScript" value="7" />
-          <entry key="MXML" value="59" />
-          <entry key="XML" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="as" value="4" />
-          <entry key="mxml" value="1" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="ActionScript" value="4" />
-          <entry key="MXML" value="1" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -64,11 +23,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
-              <caret line="130" column="84" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
+              <caret line="130" column="84" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notifications/build/platform-ios.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -112,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1244">
+            <state relative-caret-position="2790">
               <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
             </state>
           </provider>
@@ -175,16 +143,10 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="width" value="2560" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -195,6 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,12 +208,6 @@
             <path>
               <item name="notifications-air" type="b2602c69:ProjectViewProjectNode" />
               <item name="notifications-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="ane" type="462c0819:PsiDirectoryNode" />
-              <item name="com.distriqt.CustomResources.ane" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="notifications-air" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notifications-debug" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -263,7 +220,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,7 +271,7 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -328,12 +284,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="notifications-debug:android" type="FlashRunConfigurationType" factoryName="Flash App">
+    <configuration name="notifications-debug:android" type="FlashRunConfigurationType">
       <option name="BCName" value="notifications-debug" />
       <option name="IOSSimulatorSdkPath" value="" />
       <option name="adlOptions" value="" />
       <option name="airProgramParameters" value="" />
       <option name="appDescriptorForEmulator" value="Android" />
+      <option name="clearAppDataOnEachLaunch" value="true" />
       <option name="debugTransport" value="USB" />
       <option name="debuggerSdkRaw" value="BC SDK" />
       <option name="emulator" value="NexusOne" />
@@ -365,12 +322,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="notifications-debug:ios" type="FlashRunConfigurationType" factoryName="Flash App">
+    <configuration name="notifications-debug:ios" type="FlashRunConfigurationType">
       <option name="BCName" value="notifications-debug" />
       <option name="IOSSimulatorSdkPath" value="" />
       <option name="adlOptions" value="" />
       <option name="airProgramParameters" value="" />
       <option name="appDescriptorForEmulator" value="Android" />
+      <option name="clearAppDataOnEachLaunch" value="true" />
       <option name="debugTransport" value="USB" />
       <option name="debuggerSdkRaw" value="BC SDK" />
       <option name="emulator" value="NexusOne" />
@@ -402,11 +360,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -441,11 +399,13 @@
       <workItem from="1536845384264" duration="526000" />
       <workItem from="1536853603618" duration="1589000" />
       <workItem from="1537209286161" duration="1491000" />
+      <workItem from="1549282208427" duration="7000" />
+      <workItem from="1549284818276" duration="216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37074000" />
+    <option name="totallyTimeSpent" value="37297000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,10 +417,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18192919" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18427323" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -477,13 +437,15 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Profiler" order="12" />
+      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.13553114" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.13542494" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="right" id="PlantUML" order="6" />
+      <window_info anchor="right" id="Maven" order="7" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="0" />
@@ -511,9 +473,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -585,13 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notifications/build/platform-ios.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -686,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notifications/build/platform-android.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="53" selection-start-column="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notifications/build/extension.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -700,9 +645,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/build/platform-android.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="53" selection-start-column="53" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1244">
+        <state relative-caret-position="2790">
           <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
         </state>
       </provider>
@@ -710,7 +662,14 @@
     <entry file="file://$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
-          <caret line="130" column="84" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
+          <caret line="130" column="84" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications/build/platform-ios.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="30" />
         </state>
       </provider>
     </entry>
