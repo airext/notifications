@@ -62,8 +62,8 @@
             content.body = "Message";
             content.userInfo = {message: "Hello, world!"};
             content.color = 0x2FA9E5;
-            content.sound = new NotificationSound("alert_17.wav");
-//                content.sound = new NotificationSound("alert_tone.aiff");
+//            content.sound = new NotificationSound("alert_17.wav");
+                content.sound = new NotificationSound("sub.caf");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
             var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8);
