@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83111d26-7cec-4b4f-a322-dc6dc2cb10ee" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/platform-ios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/platform-ios.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/assets/alert_tone.aiff" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/assets/Library/Sounds/alert_tone.aiff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/notifications-debug.iml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/notifications-debug.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications/build/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notifications/build/build.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.m" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +231,8 @@
       <workItem from="1564506524165" duration="421000" />
       <workItem from="1571833587153" duration="1920000" />
       <workItem from="1571851193593" duration="19000" />
-      <workItem from="1572456034591" duration="138000" />
+      <workItem from="1572456034591" duration="349000" />
+      <workItem from="1572458274715" duration="804000" />
     </task>
     <servers />
   </component>
