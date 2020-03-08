@@ -199,6 +199,16 @@
     }
 }
 
++ (BOOL)readBooleanFrom:(FREObject)object field:(NSString*)field withDefaultValue:(BOOL)defaultValue {
+    FREObject propertyObject = [self readFREObjectFrom:object field:field];
+    if (propertyObject != NULL) {
+        return [self convertFREObjectToBool:propertyObject];
+    } else {
+        return defaultValue;
+    }
+}
+
+
 + (FREObject)readFREObjectFrom:(FREObject)object field:(NSString*)field {
     FREObject propertyObject;
     if (FREGetObjectProperty(object, (const uint8_t *)[field UTF8String], &propertyObject, NULL) == FRE_OK) {

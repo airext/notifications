@@ -36,6 +36,7 @@
 + (NSString*)readNSStringFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSString*)defaultValue;
 + (NSInteger)readNSIntegerFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSInteger)defaultValue;
 + (double)readDoubleFrom:(FREObject)object field:(NSString*)field withDefaultValue:(double)defaultValue;
++ (BOOL)readBooleanFrom:(FREObject)object field:(NSString*)field withDefaultValue:(BOOL)defaultValue;
 
 + (FREObject)readFREObjectFrom:(FREObject)object field:(NSString*)field;
 

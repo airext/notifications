@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="notifications-debug">
+  <component name="FlexBuildConfigurationManager" active="notifications-debug-mobile">
     <configurations>
-      <configuration name="notifications-debug" target-platform="Mobile" main-class="NotificationsDebug" output-file="NotificationsDebug.swf" output-folder="$MODULE_DIR$/../out/production/notifications-debug">
+      <configuration name="notifications-debug-mobile" target-platform="Mobile" main-class="NotificationsDebug" output-file="NotificationsDebug.swf" output-folder="$MODULE_DIR$/bin/mobile">
         <dependencies target-player="29.0">
           <entries>
-            <entry library-id="91c9d564-e4df-4ba1-ba5b-443c133ecaeb">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-id="437cc81e-7585-4033-8dd0-a28e4a00ecfe">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-id="4e43caa0-81ad-4a1a-acac-3f5a90263875">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-libs" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-MetalWorksMobileTheme" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -31,6 +31,30 @@
           <AirSigningOptions keystore-path="$USER_HOME$/cert/ryah/ios_development.p12" provisioning-profile-path="$USER_HOME$/cert/ryah/whateverdev.mobileprovision" />
         </packaging-ios>
       </configuration>
+      <configuration name="notifications-debug-desktop" target-platform="Desktop" main-class="NotificationsDebug" output-file="notifications-debug-desktop.swf" output-folder="$MODULE_DIR$/bin/desktop">
+        <dependencies>
+          <entries>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-libs" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-MetalWorksMobileTheme" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="9f8869c5-d088-4612-8313-50b9c68055fb">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.0.0.x" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NotificationsDebug-app.xml" package-file-name="notifications-debug-desktop">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
+          </files-to-package>
+        </packaging-air-desktop>
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
     </configurations>
     <compiler-options />
   </component>
@@ -43,29 +67,20 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="91c9d564-e4df-4ba1-ba5b-443c133ecaeb" />
-        <CLASSES>
-          <root url="file://$USER_HOME$/sdks/feathers/3.5.0-starling2.4/frameworks/libs" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/sdks/feathers/3.5.0-starling2.4/frameworks/libs" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="437cc81e-7585-4033-8dd0-a28e4a00ecfe" />
-        <CLASSES>
-          <root url="file://$USER_HOME$/sdks/feathers/3.5.0-starling2.4/frameworks/themes/MetalWorksMobileTheme" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/sdks/feathers/3.5.0-starling2.4/frameworks/themes/MetalWorksMobileTheme" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
         <properties id="4e43caa0-81ad-4a1a-acac-3f5a90263875" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="4.0.0-air33.0-starling2.5.1-libs" level="application" />
+    <orderEntry type="library" exported="" name="4.0.0-air33.0-starling2.5.1-MetalWorksMobileTheme" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="9f8869c5-d088-4612-8313-50b9c68055fb" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/ane" />
         </CLASSES>

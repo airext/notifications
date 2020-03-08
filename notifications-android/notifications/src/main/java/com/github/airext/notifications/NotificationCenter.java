@@ -177,6 +177,7 @@ public class NotificationCenter {
         channel.setLightColor(lightColor);
         channel.enableVibration(enableVibration);
         channel.setVibrationPattern(vibrationPattern);
+
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.createNotificationChannel(channel);
 

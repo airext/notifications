@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
-#import "FlashRuntimeExtensions.h"
 
 extern NSErrorDomain ANXNotificationCenterErrorDomain;
 
@@ -46,25 +45,14 @@ typedef void(^AddNotificationRequestCompletion)(NSError* error);
 
 # pragma mark Schedule Notification
 
-- (void)addNotificationRequestWithIdentifier:(NSString*)identifier timestamp:(NSTimeInterval)timestamp title:(NSString*)title body:(NSString*)body soundNamed:(NSString*)soundName userInfo:(NSString*)userinfo withCompletion:(AddNotificationRequestCompletion)completion;
+- (void)addNotificationRequestWithIdentifier:(NSString*)identifier trigger:(UNNotificationTrigger*)trigger content:(UNNotificationContent*)content withCompletion:(AddNotificationRequestCompletion)completion;
 - (void)removePendingNotificationRequestWithIdentifiers:(NSArray*)identifiers;
 - (void)removeAllPendingRequests;
 
 @end
 
-#pragma mark ANXNotificationCenterDelegate
+# pragma mark UNUserNotificationCenterDelegate
 
-@interface ANXNotificationCenterDelegate: NSObject <UNUserNotificationCenterDelegate>
-
-@end
-
-#pragma mark ANXNotificationCenterSettingsVO
-
-@interface ANXNotificationCenterSettingsVO : NSObject
-
-- (id)initWithAuthorizationStatus:(NSString*)authorizationStatus;
-
-- (FREObject)toFREObject;
+@interface ANXNotificationCenter (Delegate) <UNUserNotificationCenterDelegate>
 
 @end
-
