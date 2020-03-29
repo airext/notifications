@@ -13,8 +13,6 @@ import com.github.airext.notifications.NotificationCenter;
 import com.github.airext.notifications.utils.ConversionRoutines;
 import com.github.airext.notifications.utils.DispatchQueue;
 
-import java.util.Calendar;
-
 /**
  * Created by max on 12/3/17.
  */
@@ -36,6 +34,7 @@ public class AddRequestFunction implements FREFunction {
         double timeInterval = 0.0;
         String channelId    = null;
         Boolean exactTime   = false;
+        Boolean repeats     = false;
 
         try {
             FREObject request = args[0];
@@ -62,6 +61,7 @@ public class AddRequestFunction implements FREFunction {
             if (trigger != null) {
                 timeInterval = ConversionRoutines.readDoublePropertyFrom(trigger, "timeInterval", 0);
                 exactTime    = ConversionRoutines.readBooleanPropertyFrom(trigger, "exactTime", false);
+                repeats      = ConversionRoutines.readBooleanPropertyFrom(trigger, "repeats", false);
             }
 
         } catch (Exception e) {
@@ -74,10 +74,7 @@ public class AddRequestFunction implements FREFunction {
             timeInterval = 0;
         }
 
-        Calendar calendar = Calendar.getInstance();
-        long timestamp = calendar.getTimeInMillis() + (long)timeInterval * 1000;
-
-        NotificationCenter.scheduleNotification(activity, identifier, timestamp, title, body, soundName, color, userInfo, channelId, exactTime);
+        NotificationCenter.scheduleNotification(activity, identifier, timeInterval, title, body, soundName, color, userInfo, channelId, exactTime, repeats);
 
         DispatchQueue.dispatch_async(activity, new Runnable() {
             @Override

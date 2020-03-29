@@ -68,7 +68,7 @@ static ANXNotificationCenter* _sharedInstance = nil;
 
 static RequestAuthorizationCompletion _authorizationCompletionHandler;
 
-+ (void)requestAuthorizationWithOPtions:(NSInteger)options withCompletion:(RequestAuthorizationCompletion)completion {
++ (void)requestAuthorizationWithOptions:(NSInteger)options withCompletion:(RequestAuthorizationCompletion)completion {
     [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:completion];
 }
 
@@ -126,6 +126,18 @@ static BOOL _isInForeground;
                 break;
             }
         }
+    }];
+}
+
+- (void)hasPendingNotificationRequestWithIdentifier:(NSString*)identifier withCompletion:(HasPendingNotificationRequestCompletion)completion {
+    [UNUserNotificationCenter.currentNotificationCenter getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        for (UNNotificationRequest* request in requests) {
+            if ([request.identifier isEqualToString:identifier]) {
+                completion(true);
+                return;
+            }
+        }
+        completion(false);
     }];
 }
 

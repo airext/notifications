@@ -155,6 +155,14 @@ public class Notifications extends EventDispatcher {
         return _extensionVersion;
     }
 
+    //-------------------------------------
+    //  nativeVersion
+    //-------------------------------------
+
+    public static function get nativeVersion(): String {
+        return context.call("version") as String;
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -207,6 +215,12 @@ public class Notifications extends EventDispatcher {
             callback(error);
         });
         trace("Notifications", "notification request added");
+    }
+
+    public function hasPendingRequestWithIdentifier(identifier: int, callback: Function): void {
+        bridge(context).call("hasPendingRequest", identifier).callback(function(error: Error, value: Object): void {
+            callback(Boolean(value));
+        });
     }
 
     public function removePendingNotificationRequests(identifiers: Vector.<int>): void {

@@ -14,6 +14,7 @@ extern NSErrorDomain ANXNotificationCenterErrorDomain;
 typedef void(^GetNotificationSettingsCompletion)(NSString *authorizationStatus);
 typedef void(^RequestAuthorizationCompletion)(BOOL granted, NSError* error);
 typedef void(^AddNotificationRequestCompletion)(NSError* error);
+typedef void(^HasPendingNotificationRequestCompletion)(BOOL result);
 
 @interface ANXNotificationCenter : NSObject
 
@@ -31,7 +32,7 @@ typedef void(^AddNotificationRequestCompletion)(NSError* error);
 + (void)openSettings;
 
 + (void)getNotificationSettingsWithCompletion:(GetNotificationSettingsCompletion)completion;
-+ (void)requestAuthorizationWithOPtions:(NSInteger)options withCompletion:(RequestAuthorizationCompletion)completion;
++ (void)requestAuthorizationWithOptions:(NSInteger)options withCompletion:(RequestAuthorizationCompletion)completion;
 
 # pragma mark Background / Foreground
 
@@ -46,6 +47,7 @@ typedef void(^AddNotificationRequestCompletion)(NSError* error);
 # pragma mark Schedule Notification
 
 - (void)addNotificationRequestWithIdentifier:(NSString*)identifier trigger:(UNNotificationTrigger*)trigger content:(UNNotificationContent*)content withCompletion:(AddNotificationRequestCompletion)completion;
+- (void)hasPendingNotificationRequestWithIdentifier:(NSString*)identifier withCompletion:(HasPendingNotificationRequestCompletion)completion;
 - (void)removePendingNotificationRequestWithIdentifiers:(NSArray*)identifiers;
 - (void)removeAllPendingRequests;
 
