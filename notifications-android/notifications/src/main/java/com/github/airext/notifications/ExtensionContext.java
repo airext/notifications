@@ -20,6 +20,7 @@ public class ExtensionContext extends FREContext {
         functions.put("getNotificationSettings", new GetNotificationSettingsFunction());
         functions.put("requestAuthorization", new RequestAuthorizationFunction());
         functions.put("addRequest", new AddRequestFunction());
+        functions.put("hasPendingRequest", new HasPendingRequestFunction());
         functions.put("removePendingNotificationRequests", new RemovePendingNotificationRequestsFunction());
         functions.put("removeAllPendingNotificationRequests", new RemoveAllPendingNotificationRequestsFunction());
         functions.put("inBackground", new InBackgroundFunction());
@@ -28,6 +29,7 @@ public class ExtensionContext extends FREContext {
         functions.put("canOpenSettings", new CanOpenSettingsFunction());
         functions.put("openSettings", new OpenSettingsFunction());
         functions.put("createNotificationChannel", new CreateNotificationChannelFunction());
+        functions.put("version", new VersionFunction());
 
         try {
             Bridge.setup(functions);

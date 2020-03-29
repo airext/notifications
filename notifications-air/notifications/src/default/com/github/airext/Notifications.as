@@ -88,6 +88,15 @@ public class Notifications extends EventDispatcher {
         return null;
     }
 
+    //-------------------------------------
+    //  nativeVersion
+    //-------------------------------------
+
+    public static function get nativeVersion(): String {
+        trace("Notifications extension is not supported for " + Capabilities.os);
+        return null;
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -113,6 +122,10 @@ public class Notifications extends EventDispatcher {
     }
 
     public function add(request: NotificationRequest, callback: Function): void {
+        trace("Notifications extension is not supported for " + Capabilities.os);
+    }
+
+    public function hasPendingRequestWithIdentifier(identifier: int, callback: Function): void {
         trace("Notifications extension is not supported for " + Capabilities.os);
     }
 

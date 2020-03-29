@@ -8,6 +8,7 @@
         <![CDATA[
         import com.github.airext.Notifications;
         import com.github.airext.notifications.NotificationCenterAuthorizationOptions;
+        import com.github.airext.notifications.NotificationCenterEvent;
         import com.github.airext.notifications.NotificationCenterSettings;
         import com.github.airext.notifications.NotificationChannel;
         import com.github.airext.notifications.NotificationContent;
@@ -66,7 +67,7 @@
                 content.sound = new NotificationSound("sub.caf");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8);
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(60, true);
             trigger.exactTime = true;
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
@@ -77,6 +78,12 @@
                 } else {
                     log("Notification requested: " + request, "at", new Date());
                 }
+            });
+        }
+
+        private function hasPendingNotificationTapped(): void {
+            Notifications.shared.hasPendingRequestWithIdentifier(1, function(...rest): void {
+                log("has pending notification: " + rest);
             });
         }
 
@@ -109,8 +116,6 @@
     </fx:Script>
 
     <f:creationComplete><![CDATA[
-            import com.github.airext.notifications.NotificationCenterEvent;
-
             Notifications.shared.addEventListener(NotificationCenterEvent.NOTIFICATION_RECEIVED_IN_FOREGROUND, function (event: NotificationCenterEvent): void {
                 log("Notification received in foreground at", new Date());
             });
@@ -140,8 +145,11 @@
             </f:textRendererProperties>
         </f:Label>
 
+        <f:Button label="extensionVersion" triggered="log(Notifications.extensionVersion)" />
+        <f:Button label="nativeVersion" triggered="log(Notifications.nativeVersion)" />
         <f:Button label="createNotificationChannel" triggered="createNotificationChannel()" />
         <f:Button label="addRequest" triggered="addRequest()" />
+        <f:Button label="hasPendingRequest" triggered="hasPendingNotificationTapped()" />
         <f:Button label="cancelRequest" triggered="cancelLatestRequestIfExists()" />
         <f:Button label="IsEnabled" triggered="log(Notifications.isEnabled)" />
         <f:Button label="CanOpenSettings" triggered="log(Notifications.canOpenSettings)" />

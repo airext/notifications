@@ -26,6 +26,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Calendar;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -186,8 +187,8 @@ public class NotificationCenter {
 
     // MARK: Schedule notification
 
-    public static void scheduleNotification(Context context, int identifier, long timestamp, String title, String body, String sound, int color, String userInfo, String channelId, Boolean exactTime) {
-        Log.d(TAG, "scheduleNotification(" + identifier + "," + timestamp + "," + title + "," + body + "," + sound + "," + color + "," + userInfo + "," + channelId + "," + exactTime +")");
+    public static void scheduleNotification(Context context, int identifier, double timeInterval, String title, String body, String sound, int color, String userInfo, String channelId, Boolean exactTime, Boolean repeats) {
+        Log.d(TAG, "scheduleNotification(" + identifier + "," + timeInterval + "," + title + "," + body + "," + sound + "," + color + "," + userInfo + "," + channelId + "," + exactTime +"," + repeats + ")");
 
         // cancel already scheduled reminders
         removePendingNotificationWithId(context, identifier);
@@ -211,10 +212,28 @@ public class NotificationCenter {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        if (exactTime) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+        if (alarmManager == null) {
+            Log.e(TAG, "Can't get AlarmManager");
+            return;
+        }
+
+        long interval = (long)timeInterval * 1000;
+
+        Calendar calendar = Calendar.getInstance();
+        long triggerAt = calendar.getTimeInMillis() + interval;
+
+        if (repeats) {
+            if (exactTime) {
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, triggerAt, interval, pendingIntent);
+            } else {
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, triggerAt, interval, pendingIntent);
+            }
         } else {
-            alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+            if (exactTime) {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
+            } else {
+                alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
+            }
         }
     }
 
@@ -227,10 +246,27 @@ public class NotificationCenter {
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
         Intent intent = new Intent(context, LocalNotificationBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent == null) {
+            Log.w(TAG, "Can't find PendingIntent instance with identifier '" + identifier + "'" );
+            return;
+        }
+
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        if (am == null) {
+            Log.e(TAG, "Can't get AlarmManager");
+            return;
+        }
+
         am.cancel(pendingIntent);
         pendingIntent.cancel();
+    }
+
+    public static boolean hasPendingNotificationRequestWithId(Context context, int identifier) {
+        Intent intent = new Intent(context, LocalNotificationBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_NO_CREATE);
+        return pendingIntent != null;
     }
 
     public static void removeAllPendingNotificationRequests(Context context) {

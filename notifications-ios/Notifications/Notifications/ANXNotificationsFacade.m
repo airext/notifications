@@ -14,6 +14,7 @@
 #import "ANXNotificationsConversionRoutines.h"
 #import "ANXNotificationCenter.h"
 #import "ANXNotificationCenterSettingsVO.h"
+#import "ANXNotificationBooleanVO.h"
 #import "UserNotifications+FRE.h"
 
 @implementation ANXNotificationsFacade
@@ -65,7 +66,7 @@ FREObject ANXNotificationsRequestAuthorization(FREContext context, void* functio
 
     if (argc > 0) {
         NSInteger options = [ANXNotificationsConversionRoutines convertFREObjectToNSInteger:argv[0] withDefault:0];
-        [ANXNotificationCenter requestAuthorizationWithOPtions:options withCompletion:^(BOOL granted, NSError *error) {
+        [ANXNotificationCenter requestAuthorizationWithOptions:options withCompletion:^(BOOL granted, NSError *error) {
             if (granted) {
                 [call result:@"granted"];
             } else {
@@ -110,6 +111,22 @@ FREObject ANXNotificationsAddRequest(FREContext context, void* functionData, uin
     return [call toFREObject];
 }
 
+FREObject ANXNotificationsHasPendingNotificationRequest(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    NSLog(@"ANXNotificationsHasPendingNotificationRequest");
+
+    ANXBridgeCall* call = [ANXBridge call:context];
+
+    if (argc > 0) {
+        NSInteger identifier = [ANXNotificationsConversionRoutines convertFREObjectToNSInteger:argv[0] withDefault:0];
+
+        [ANXNotificationCenter.sharedInstance hasPendingNotificationRequestWithIdentifier:[NSString stringWithFormat:@"%li", (long)identifier] withCompletion:^(BOOL result) {
+            [call result:[ANXNotificationBooleanVO withValue:result]];
+        }];
+    }
+
+    return [call toFREObject];
+}
+
 FREObject ANXNotificationsRemovePendingNotificationRequests(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXNotificationsRemovePendingNotificationRequests");
     if (argc > 0) {
@@ -149,6 +166,11 @@ FREObject ANXNotificationsCreateNotificationChannel(FREContext context, void* fu
     return NULL;
 }
 
+FREObject ANXNotificationsVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    NSLog(@"ANXNotificationsVersion");
+    return [ANXNotificationsConversionRoutines convertNSStringToFREObject:@"1"];
+}
+
 #pragma mark ContextInitialize/ContextFinalizer
 
 void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet) {
@@ -165,6 +187,7 @@ void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, F
         { (const uint8_t*)"requestAuthorization", NULL, &ANXNotificationsRequestAuthorization },
 
         { (const uint8_t*)"addRequest", NULL, &ANXNotificationsAddRequest },
+        { (const uint8_t*)"hasPendingRequest", NULL, &ANXNotificationsHasPendingNotificationRequest },
         { (const uint8_t*)"removePendingNotificationRequests", NULL, &ANXNotificationsRemovePendingNotificationRequests },
         { (const uint8_t*)"removeAllPendingNotificationRequests", NULL, &ANXNotificationsRemoveAllPendingNotificationRequests },
 
@@ -172,6 +195,8 @@ void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, F
         { (const uint8_t*)"openSettings", NULL, &ANXNotificationsOpenSettings },
 
         { (const uint8_t*)"createNotificationChannel", NULL, &ANXNotificationsCreateNotificationChannel },
+
+        { (const uint8_t*)"version", NULL, &ANXNotificationsVersion },
     };
 
     *numFunctionsToSet = sizeof(functions) / sizeof(FRENamedFunction);
