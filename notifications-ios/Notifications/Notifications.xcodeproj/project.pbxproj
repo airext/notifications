@@ -7,11 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5043A7362412D4650010ABEB /* ANXNotificationCenterSettingsVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5043A7352412D4650010ABEB /* ANXNotificationCenterSettingsVO.m */; };
+		5043A73C2412DDD60010ABEB /* UserNotifications+FRE.m in Sources */ = {isa = PBXBuildFile; fileRef = 5043A73B2412DDD60010ABEB /* UserNotifications+FRE.m */; };
+		5043A75D24143BB90010ABEB /* Adobe AIR_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043A75C24143BB90010ABEB /* Adobe AIR_64 */; };
+		5043A76024143BE50010ABEB /* ANXNotificationsFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */; };
+		5043A76124143BEC0010ABEB /* ANXNotificationsFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */; };
+		5043A76224143BEC0010ABEB /* ANXNotificationsConversionRoutines.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A7456F20E51BD700F07854 /* ANXNotificationsConversionRoutines.h */; };
+		5043A76324143BEC0010ABEB /* ANXNotificationsConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457020E51BD700F07854 /* ANXNotificationsConversionRoutines.m */; };
+		5043A76424143BEC0010ABEB /* ANXNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A7457220E51DBD00F07854 /* ANXNotifications.h */; };
+		5043A76524143BEC0010ABEB /* ANXNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457320E51DBD00F07854 /* ANXNotifications.m */; };
+		5043A773241440300010ABEB /* ANXBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043A772241440300010ABEB /* ANXBridge.framework */; };
+		5043A775241500840010ABEB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043A774241500840010ABEB /* Cocoa.framework */; };
 		50A7456420E51AF600F07854 /* ANXNotificationsFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */; };
 		50A7456520E51AF600F07854 /* ANXNotificationsFacade.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */; };
 		50A7457120E51BD700F07854 /* ANXNotificationsConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457020E51BD700F07854 /* ANXNotificationsConversionRoutines.m */; };
 		50A7457420E51DBD00F07854 /* ANXNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457320E51DBD00F07854 /* ANXNotifications.m */; };
 		50A7457A20E51F2F00F07854 /* ANXNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */; };
+		50EAB1862415127A00AAF644 /* Adobe AIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043A75924143B880010ABEB /* Adobe AIR.framework */; };
+		50EAB187241515DF00AAF644 /* ANXNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A7457820E51F2F00F07854 /* ANXNotificationCenter.h */; };
+		50EAB188241515DF00AAF644 /* ANXNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */; };
+		50EAB189241515DF00AAF644 /* ANXNotificationCenterSettingsVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5043A7342412D4650010ABEB /* ANXNotificationCenterSettingsVO.h */; };
+		50EAB18A241515DF00AAF644 /* ANXNotificationCenterSettingsVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5043A7352412D4650010ABEB /* ANXNotificationCenterSettingsVO.m */; };
+		50EAB18B241515DF00AAF644 /* UserNotifications+FRE.h in Headers */ = {isa = PBXBuildFile; fileRef = 5043A73A2412DDD60010ABEB /* UserNotifications+FRE.h */; };
+		50EAB18C241515DF00AAF644 /* UserNotifications+FRE.m in Sources */ = {isa = PBXBuildFile; fileRef = 5043A73B2412DDD60010ABEB /* UserNotifications+FRE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +46,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5043A7342412D4650010ABEB /* ANXNotificationCenterSettingsVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationCenterSettingsVO.h; sourceTree = "<group>"; };
+		5043A7352412D4650010ABEB /* ANXNotificationCenterSettingsVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationCenterSettingsVO.m; sourceTree = "<group>"; };
+		5043A73A2412DDD60010ABEB /* UserNotifications+FRE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserNotifications+FRE.h"; sourceTree = "<group>"; };
+		5043A73B2412DDD60010ABEB /* UserNotifications+FRE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserNotifications+FRE.m"; sourceTree = "<group>"; };
+		5043A744241439D60010ABEB /* ANXNotifications_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotifications_macOS.h; sourceTree = "<group>"; };
+		5043A745241439D60010ABEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5043A75124143AA60010ABEB /* ANXNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANXNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5043A75924143B880010ABEB /* Adobe AIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Adobe AIR.framework"; sourceTree = "<group>"; };
+		5043A75C24143BB90010ABEB /* Adobe AIR_64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR_64"; path = "ANXNotifications-macOS/Supporting Files/Adobe AIR.framework/Versions/1.0/Adobe AIR_64"; sourceTree = "<group>"; };
+		5043A772241440300010ABEB /* ANXBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ANXBridge.framework; sourceTree = "<group>"; };
+		5043A774241500840010ABEB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		50A7455F20E51AF600F07854 /* libANXNotifications.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXNotifications.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A7456220E51AF600F07854 /* ANXNotificationsFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationsFacade.h; sourceTree = "<group>"; };
 		50A7456320E51AF600F07854 /* ANXNotificationsFacade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationsFacade.m; sourceTree = "<group>"; };
@@ -43,6 +72,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5043A74E24143AA60010ABEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5043A775241500840010ABEB /* Cocoa.framework in Frameworks */,
+				5043A75D24143BB90010ABEB /* Adobe AIR_64 in Frameworks */,
+				50EAB1862415127A00AAF644 /* Adobe AIR.framework in Frameworks */,
+				5043A773241440300010ABEB /* ANXBridge.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50A7455C20E51AF600F07854 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,11 +93,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5043A743241439D60010ABEB /* ANXNotifications-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5043A74B24143A2C0010ABEB /* Supporting Files */,
+				5043A744241439D60010ABEB /* ANXNotifications_macOS.h */,
+				5043A745241439D60010ABEB /* Info.plist */,
+			);
+			path = "ANXNotifications-macOS";
+			sourceTree = "<group>";
+		};
+		5043A74B24143A2C0010ABEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5043A772241440300010ABEB /* ANXBridge.framework */,
+				5043A75924143B880010ABEB /* Adobe AIR.framework */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5043A75B24143BB90010ABEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5043A774241500840010ABEB /* Cocoa.framework */,
+				5043A75C24143BB90010ABEB /* Adobe AIR_64 */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5043A76C24143C160010ABEB /* ANXNotifications-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5043A76D24143C320010ABEB /* Supporting Files */,
+			);
+			path = "ANXNotifications-iOS";
+			sourceTree = "<group>";
+		};
+		5043A76D24143C320010ABEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50A7456C20E51B4900F07854 /* FlashRuntimeExtensions.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		50A7455620E51AF600F07854 = {
 			isa = PBXGroup;
 			children = (
 				50A7456120E51AF600F07854 /* Notifications */,
+				5043A76C24143C160010ABEB /* ANXNotifications-iOS */,
+				5043A743241439D60010ABEB /* ANXNotifications-macOS */,
 				50A7456020E51AF600F07854 /* Products */,
+				5043A75B24143BB90010ABEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				50A7455F20E51AF600F07854 /* libANXNotifications.a */,
+				5043A75124143AA60010ABEB /* ANXNotifications.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +169,10 @@
 				50A7457320E51DBD00F07854 /* ANXNotifications.m */,
 				50A7457820E51F2F00F07854 /* ANXNotificationCenter.h */,
 				50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */,
+				5043A7342412D4650010ABEB /* ANXNotificationCenterSettingsVO.h */,
+				5043A7352412D4650010ABEB /* ANXNotificationCenterSettingsVO.m */,
+				5043A73A2412DDD60010ABEB /* UserNotifications+FRE.h */,
+				5043A73B2412DDD60010ABEB /* UserNotifications+FRE.m */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -90,17 +182,50 @@
 			children = (
 				50A7456D20E51B8300F07854 /* ANXBridge.h */,
 				50A7456E20E51B8300F07854 /* ANXBridgeCall.h */,
-				50A7456C20E51B4900F07854 /* FlashRuntimeExtensions.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5043A74C24143AA60010ABEB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EAB187241515DF00AAF644 /* ANXNotificationCenter.h in Headers */,
+				50EAB189241515DF00AAF644 /* ANXNotificationCenterSettingsVO.h in Headers */,
+				5043A76424143BEC0010ABEB /* ANXNotifications.h in Headers */,
+				5043A76224143BEC0010ABEB /* ANXNotificationsConversionRoutines.h in Headers */,
+				50EAB18B241515DF00AAF644 /* UserNotifications+FRE.h in Headers */,
+				5043A76024143BE50010ABEB /* ANXNotificationsFacade.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		50A7455E20E51AF600F07854 /* ANXNotifications */ = {
+		5043A75024143AA60010ABEB /* ANXNotifications-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications" */;
+			buildConfigurationList = 5043A75624143AA60010ABEB /* Build configuration list for PBXNativeTarget "ANXNotifications-macOS" */;
+			buildPhases = (
+				5043A74C24143AA60010ABEB /* Headers */,
+				5043A74D24143AA60010ABEB /* Sources */,
+				5043A74E24143AA60010ABEB /* Frameworks */,
+				5043A74F24143AA60010ABEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ANXNotifications-macOS";
+			productName = "ANXNotifications-macOS";
+			productReference = 5043A75124143AA60010ABEB /* ANXNotifications.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		50A7455E20E51AF600F07854 /* ANXNotifications-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications-iOS" */;
 			buildPhases = (
 				50A7455B20E51AF600F07854 /* Sources */,
 				50A7455C20E51AF600F07854 /* Frameworks */,
@@ -110,7 +235,7 @@
 			);
 			dependencies = (
 			);
-			name = ANXNotifications;
+			name = "ANXNotifications-iOS";
 			productName = Notifications;
 			productReference = 50A7455F20E51AF600F07854 /* libANXNotifications.a */;
 			productType = "com.apple.product-type.library.static";
@@ -124,6 +249,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Max Rozdobudko";
 				TargetAttributes = {
+					5043A75024143AA60010ABEB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					50A7455E20E51AF600F07854 = {
 						CreatedOnToolsVersion = 9.4;
 					};
@@ -141,17 +269,43 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50A7455E20E51AF600F07854 /* ANXNotifications */,
+				50A7455E20E51AF600F07854 /* ANXNotifications-iOS */,
+				5043A75024143AA60010ABEB /* ANXNotifications-macOS */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		5043A74F24143AA60010ABEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		5043A74D24143AA60010ABEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5043A76124143BEC0010ABEB /* ANXNotificationsFacade.m in Sources */,
+				50EAB18C241515DF00AAF644 /* UserNotifications+FRE.m in Sources */,
+				50EAB18A241515DF00AAF644 /* ANXNotificationCenterSettingsVO.m in Sources */,
+				50EAB188241515DF00AAF644 /* ANXNotificationCenter.m in Sources */,
+				5043A76524143BEC0010ABEB /* ANXNotifications.m in Sources */,
+				5043A76324143BEC0010ABEB /* ANXNotificationsConversionRoutines.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50A7455B20E51AF600F07854 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				50A7456420E51AF600F07854 /* ANXNotificationsFacade.m in Sources */,
+				5043A73C2412DDD60010ABEB /* UserNotifications+FRE.m in Sources */,
+				5043A7362412D4650010ABEB /* ANXNotificationCenterSettingsVO.m in Sources */,
 				50A7457A20E51F2F00F07854 /* ANXNotificationCenter.m in Sources */,
 				50A7457420E51DBD00F07854 /* ANXNotifications.m in Sources */,
 				50A7457120E51BD700F07854 /* ANXNotificationsConversionRoutines.m in Sources */,
@@ -161,6 +315,107 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5043A75724143AA60010ABEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+				);
+				INFOPLIST_FILE = "ANXNotifications-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files/Adobe\\ AIR.framework/Versions/1.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fvisibility=hidden";
+				OTHER_LDFLAGS = (
+					"$(inherit)",
+					"-ObjC",
+					"-weak_framework",
+					"\"Adobe AIR\"",
+					"-w",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.airext.notifications.ANXNotifications;
+				PRODUCT_NAME = ANXNotifications;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				VALIDATE_PRODUCT = NO;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5043A75824143AA60010ABEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files",
+				);
+				INFOPLIST_FILE = "ANXNotifications-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ANXNotifications-macOS/Supporting\\ Files/Adobe\\ AIR.framework/Versions/1.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fvisibility=hidden";
+				OTHER_LDFLAGS = (
+					"$(inherit)",
+					"-ObjC",
+					"-weak_framework",
+					"\"Adobe AIR\"",
+					"-w",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.airext.notifications.ANXNotifications;
+				PRODUCT_NAME = ANXNotifications;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				VALIDATE_PRODUCT = NO;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		50A7456620E51AF600F07854 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -212,9 +467,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -264,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -277,7 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NYZLFKA5XF;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ANXNotifications;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NYZLFKA5XF;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ANXNotifications;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,6 +552,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5043A75624143AA60010ABEB /* Build configuration list for PBXNativeTarget "ANXNotifications-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5043A75724143AA60010ABEB /* Debug */,
+				5043A75824143AA60010ABEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50A7455A20E51AF600F07854 /* Build configuration list for PBXProject "Notifications" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -307,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications" */ = {
+		50A7456820E51AF600F07854 /* Build configuration list for PBXNativeTarget "ANXNotifications-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50A7456920E51AF600F07854 /* Debug */,

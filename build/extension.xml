@@ -1,6 +1,6 @@
 <extension xmlns="http://ns.adobe.com/air/extension/24.0">
   <id>com.github.airext.Notifications</id>
-  <versionNumber>0.6.2</versionNumber>
+  <versionNumber>0.7.0</versionNumber>
   <platforms>
     <platform name="iPhone-ARM">
       <applicationDeployment>
@@ -35,6 +35,13 @@
         <nativeLibrary>libANXNotifications.jar</nativeLibrary>
         <initializer>com.github.airext.Notifications</initializer>
         <finalizer>com.github.airext.Notifications</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="MacOS-x86-64">
+      <applicationDeployment>
+        <nativeLibrary>ANXNotifications.framework</nativeLibrary>
+        <initializer>ANXNotificationsInitializer</initializer>
+        <finalizer>ANXNotificationsFinalizer</finalizer>
       </applicationDeployment>
     </platform>
     <platform name="default">

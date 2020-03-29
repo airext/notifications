@@ -9,7 +9,7 @@
     <property name="product.name" value="Notifications" />
     <property name="extension.id" value="com.github.airext.Notifications" />
 
-    <property name="ios.project.dir" value="../${project.name}-ios/${product.name}" />
+    <property name="xcode.project.dir" value="../${project.name}-ios/${product.name}" />
     <property name="air.project.dir" value="../${project.name}-air/${project.name}" />
     <property name="air-debug.project.dir" value="../${project.name}-air/${project.name}-debug" />
     <property name="android.project.dir" value="../${project.name}-android/${project.name}" />
@@ -20,7 +20,7 @@
     <!--                             Build All                               -->
     <!--=====================================================================-->
 
-    <target name="all" depends="android,ios,air,package" description="Full build of extension">
+    <target name="all" depends="ios,osx,android,air,package" description="Full build of extension">
         <exec executable="java">
             <arg value="-version" />
         </exec>
@@ -31,6 +31,9 @@
     <!--=====================================================================-->
 
 	<target name="ios" description="Build iOS Library">
+        <condition property="ios.configuration" value="Debug" else="Release">
+            <equals arg1="${is.debug}" arg2="true" />
+        </condition>
 
         <!-- Create temporary directory for iOS artifacts -->
         <mkdir dir="temp/ios/build/"/>
@@ -38,36 +41,68 @@
         <!-- iOS -->
 
         <!-- Build iOS part of the extension -->
-        <exec executable="xcodebuild" failonerror="true" dir="${ios.project.dir}">
+        <exec executable="xcodebuild" failonerror="true" dir="${xcode.project.dir}">
             <arg line='-project ${product.name}.xcodeproj'/>
             <arg line='-sdk iphoneos' />
-            <arg line="-target ANX${product.name}"/>
-            <arg line='-configuration Release'/>
+            <arg line="-target ANX${product.name}-iOS"/>
+            <arg line='-configuration ${ios.configuration}'/>
             <arg line='SYMROOT=$(PWD)/../build/temp/ios/build'/>
         </exec>
 
         <!-- Copy iOS native part for iOS platform -->
-		<copy file="temp/ios/build/Release-iphoneos/libANX${product.name}.a" todir="temp/ios" overwrite="true"/>
+		<copy file="temp/ios/build/${ios.configuration}-iphoneos/libANX${product.name}.a" todir="temp/ios" overwrite="true"/>
 
         <!-- iOS-Simulator -->
 
         <!-- Build iOS-simulator part of the extension -->
-        <exec executable="xcodebuild" failonerror="true" dir="${ios.project.dir}">
+        <exec executable="xcodebuild" failonerror="true" dir="${xcode.project.dir}">
             <arg line='-project ${product.name}.xcodeproj'/>
             <arg line='only_active_arch=no valid_archs="x86_64 i386"'/>
             <arg line='-sdk iphonesimulator' />
             <arg line="-arch x86_64 -arch i386" />
-            <arg line="-target ANX${product.name}"/>
-            <arg line='-configuration Debug'/>
+            <arg line="-target ANX${product.name}-iOS"/>
+            <arg line='-configuration ${ios.configuration}'/>
             <arg line='SYMROOT=$(PWD)/../build/temp/ios/build'/>
         </exec>
 
         <!-- Copy iOS native part for iOS-Simulator platform -->
-        <copy file="temp/ios/build/Debug-iphonesimulator/libANX${product.name}.a" tofile="temp/ios-simulator/libANX${product.name}Simulator.a" overwrite="true"/>
+        <copy file="temp/ios/build/${ios.configuration}-iphonesimulator/libANX${product.name}.a" tofile="temp/ios-simulator/libANX${product.name}Simulator.a" overwrite="true"/>
 
         <!-- Remove temporary directory for iOS artifacts -->
 		<delete dir="temp/ios/build/"/>
 	</target>
+
+    <!--=====================================================================-->
+    <!--                        Build macOS Library                          -->
+    <!--=====================================================================-->
+
+    <target name="osx" description="Build macOS Library">
+        <condition property="mac.configuration" value="Debug" else="Release">
+            <equals arg1="${is.debug}" arg2="true" />
+        </condition>
+
+        <!-- Create temporary directory for iOS artifacts -->
+        <mkdir dir="temp/osx/build/"/>
+
+        <!-- iOS -->
+
+        <!-- Build iOS part of the extension -->
+        <exec executable="xcodebuild" failonerror="true" dir="${xcode.project.dir}" logerror="true">
+            <arg line='-project ${product.name}.xcodeproj'/>
+            <arg line='-sdk macosx' />
+            <arg line="-target ANX${product.name}-macOS"/>
+            <arg line='-configuration ${mac.configuration}'/>
+            <arg line='SYMROOT=$(PWD)/../build/temp/osx/build'/>
+        </exec>
+
+        <!-- Copy OSX build artifacts to temporary build folder -->
+        <copy todir="temp/osx/ANX${product.name}.framework">
+            <fileset dir="temp/osx/build/${mac.configuration}/ANX${product.name}.framework" includes="**/**" />
+        </copy>
+
+        <!-- Remove temporary directory for iOS artifacts -->
+        <delete dir="temp/osx/build/"/>
+    </target>
 
     <!--=====================================================================-->
     <!--                        Build Android Library                        -->
@@ -154,6 +189,9 @@
         <!-- Copy library.swf to Android platform folder -->
         <copy file="temp/swc/build/library.swf" todir="temp/android" overwrite="true"/>
 
+        <!-- Copy library.swf to macOS platform folder -->
+        <copy file="temp/swc/build/library.swf" todir="temp/osx" overwrite="true"/>
+
         <!-- Remove temporary folder -->
         <delete dir="temp/swc/build/"/>
     </target>
@@ -222,6 +260,7 @@
             <arg line="-platform Android-ARM64 -platformoptions ../platform-android.xml -C android/ ."/>
             <arg line="-platform Android-ARM -platformoptions ../platform-android.xml -C android/ ."/>
             <arg line="-platform Android-x86 -platformoptions ../platform-android.xml -C android/ ."/>
+            <arg line="-platform MacOS-x86-64 -C osx/ ."/>
             <arg line="-platform default -C default/ ."/>
         </exec>
 
