@@ -1,6 +1,6 @@
 //
 //  ANXNotificationCenter.h
-//  DeviceInfo
+//  Notifications
 //
 //  Created by Max Rozdobudko on 12/7/17.
 //  Copyright © 2017 Max Rozdobudko. All rights reserved.
@@ -53,8 +53,8 @@ typedef void(^HasPendingNotificationRequestCompletion)(BOOL result);
 
 @end
 
-# pragma mark UNUserNotificationCenterDelegate
+# pragma mark ANXNotificationCenterDelegate
 
-@interface ANXNotificationCenter (Delegate) <UNUserNotificationCenterDelegate>
+@interface ANXNotificationCenterDelegate : NSObject <UNUserNotificationCenterDelegate>
 
 @end

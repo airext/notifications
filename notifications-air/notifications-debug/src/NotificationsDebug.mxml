@@ -18,6 +18,9 @@
         import com.github.airext.permissions.AuthorisationStatus;
         import com.github.airext.permissions.Permission;
 
+        import flash.events.InvokeEvent;
+        import flash.desktop.NativeApplication;
+
         import starling.utils.SystemUtil;
 
         private function log(...args): void {
@@ -64,10 +67,10 @@
             content.userInfo = {message: "Hello, world!"};
             content.color = 0x2FA9E5;
 //            content.sound = new NotificationSound("alert_17.wav");
-                content.sound = new NotificationSound("sub.caf");
+            content.sound = new NotificationSound("sub.caf");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(60, true);
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8, false);
             trigger.exactTime = true;
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
@@ -82,7 +85,7 @@
         }
 
         private function hasPendingNotificationTapped(): void {
-            Notifications.shared.hasPendingRequestWithIdentifier(1, function(...rest): void {
+            Notifications.shared.hasPendingRequestWithIdentifier(1, function (...rest): void {
                 log("has pending notification: " + rest);
             });
         }
@@ -116,6 +119,10 @@
     </fx:Script>
 
     <f:creationComplete><![CDATA[
+            NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, function(event: InvokeEvent): void {
+                log("Invoked with: reason:", event.reason, "args:", event.arguments);
+            });
+
             Notifications.shared.addEventListener(NotificationCenterEvent.NOTIFICATION_RECEIVED_IN_FOREGROUND, function (event: NotificationCenterEvent): void {
                 log("Notification received in foreground at", new Date());
             });

@@ -1,6 +1,6 @@
 //
 //  ANXNotificationCenter.m
-//  DeviceInfo
+//  Notifications
 //
 //  Created by Max Rozdobudko on 12/7/17.
 //  Copyright © 2017 Max Rozdobudko. All rights reserved.
@@ -27,11 +27,18 @@ static ANXNotificationCenter* _sharedInstance = nil;
     return _sharedInstance;
 }
 
-- (instancetype)init {
-    if (self = [super init]) {
-        UNUserNotificationCenter.currentNotificationCenter.delegate = self;
-    }
-    return self;
+#pragma class load
+
+static ANXNotificationCenterDelegate* _delegate = nil;
+
++ (void)load {
+    NSLog(@"ANXNotificationCenter load");
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _delegate = [[ANXNotificationCenterDelegate alloc] init];
+        UNUserNotificationCenter.currentNotificationCenter.delegate = _delegate;
+    });
 }
 
 # pragma mark Availability & Permissions
@@ -80,13 +87,16 @@ static BOOL _isInForeground;
     return _isInForeground;
 }
 + (void)inForeground {
+    NSLog(@"ANXNotificationCenter inForeground");
     _isInForeground = YES;
+    NSLog(@"[ANXNotificationCenter] stored params: %@", ANXNotificationCenter.sharedInstance.params);
     if (ANXNotificationCenter.sharedInstance.params) {
-        [ANXNotifications.sharedInstance dispatch:@"DeviceInfo.NotificationCenter.Notification.ReceivedInBackground" withLevel:ANXNotificationCenter.sharedInstance.params];
+        [ANXNotifications.sharedInstance dispatch:@"Notifications.Notification.ReceivedInBackground" withLevel:ANXNotificationCenter.sharedInstance.params];
         ANXNotificationCenter.sharedInstance.params = nil;
     }
 }
 + (void)inBackground {
+    NSLog(@"ANXNotificationCenter inBackground");
     _isInForeground = NO;
 }
 
@@ -160,36 +170,38 @@ static BOOL _isInForeground;
 
 @end
 
-#pragma mark <UNUserNotificationCenterDelegate>
+# pragma mark - ANXNotificationCenterDelegate
 
-@implementation ANXNotificationCenter (Delegate)
+@implementation ANXNotificationCenterDelegate : NSObject
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler API_AVAILABLE(ios(10.0)) {
-    
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+
     NSLog(@"ANXNotificationCenter userNotificationCenter:willPresentNotification:withCompletionHandler");
-    
+
     if (completionHandler) {
         completionHandler(UNNotificationPresentationOptionNone);
     }
-    
+
     NSString* params = notification.request.content.userInfo[@"params"];
-    
+
     [ANXNotifications.sharedInstance dispatch:@"Notifications.Notification.ReceivedInForeground" withLevel:params];
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler API_AVAILABLE(ios(10.0)) {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
     NSLog(@"ANXNotificationCenter userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler");
-    
+
     UNNotification* notification = response.notification;
-    
+
     NSString* params = notification.request.content.userInfo[@"params"];
-    
+
     if (ANXNotificationCenter.isInForeground) {
+        NSLog(@"[ANXNotificationCenter] response received when app is in foreground, dispatch ReceivedInBackground event");
         [ANXNotifications.sharedInstance dispatch:@"Notifications.Notification.ReceivedInBackground" withLevel:params];
     } else {
+        NSLog(@"[ANXNotificationCenter] response received when app is in background, store params for further usage");
         ANXNotificationCenter.sharedInstance.params = params;
     }
-    
+
     if (completionHandler) {
         completionHandler();
     }

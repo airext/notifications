@@ -6,25 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83111d26-7cec-4b4f-a322-dc6dc2cb10ee" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/functions/HasPendingRequestFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationBooleanVO.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationBooleanVO.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/anx-bridge.ane" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/ane/anx-bridge.swc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.ane" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/ane/com.github.airext.Notifications.swc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications-debug/notifications-debug.iml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/notifications-debug.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/notifications-debug/src/NotificationsDebug.mxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications/src/default/com/github/airext/Notifications.as" beforeDir="false" afterPath="$PROJECT_DIR$/notifications/src/default/com/github/airext/Notifications.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as" beforeDir="false" afterPath="$PROJECT_DIR$/notifications/src/main/com/github/airext/Notifications.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/ExtensionContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/ExtensionContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/NotificationCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/NotificationCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/functions/AddRequestFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/notifications/src/main/java/com/github/airext/notifications/functions/AddRequestFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.h" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notifications-android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notifications-android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-android/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.m" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationCenter.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationsFacade.m" beforeDir="false" afterPath="$PROJECT_DIR$/../notifications-ios/Notifications/Notifications/ANXNotificationsFacade.m" afterDir="false" />
     </list>
@@ -95,7 +82,7 @@
       <recent name="$PROJECT_DIR$/notifications-debug/assets/Library" />
     </key>
   </component>
-  <component name="RunManager" selected="Flash App.notifications-debug:android">
+  <component name="RunManager" selected="Flash App.notifications-debug:ios">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -297,7 +284,9 @@
       <workItem from="1583502808560" duration="14680000" />
       <workItem from="1585297547155" duration="119000" />
       <workItem from="1585491239764" duration="1243000" />
-      <workItem from="1585493251836" duration="4771000" />
+      <workItem from="1585493251836" duration="6314000" />
+      <workItem from="1585581080517" duration="110000" />
+      <workItem from="1585766128867" duration="3681000" />
     </task>
     <servers />
   </component>
@@ -339,38 +328,38 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="981" y="547" key="AirPackageDialog.DimensionServiceKey/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1583662768472" />
-    <state width="2518" height="343" key="GridCell.Tab.0.bottom" timestamp="1585498474312">
+    <state width="2518" height="412" key="GridCell.Tab.0.bottom" timestamp="1585770041652">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474312" />
-    <state width="2518" height="343" key="GridCell.Tab.0.center" timestamp="1585498474311">
+    <state width="2518" height="412" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041652" />
+    <state width="2518" height="412" key="GridCell.Tab.0.center" timestamp="1585770041652">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474311" />
-    <state width="2518" height="343" key="GridCell.Tab.0.left" timestamp="1585498474310">
+    <state width="2518" height="412" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041652" />
+    <state width="2518" height="412" key="GridCell.Tab.0.left" timestamp="1585770041651">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474310" />
-    <state width="2518" height="343" key="GridCell.Tab.0.right" timestamp="1585498474312">
+    <state width="2518" height="412" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041651" />
+    <state width="2518" height="412" key="GridCell.Tab.0.right" timestamp="1585770041652">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474311" />
-    <state width="2518" height="343" key="GridCell.Tab.1.bottom" timestamp="1585498474213">
+    <state width="2518" height="412" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041652" />
+    <state width="2518" height="412" key="GridCell.Tab.1.bottom" timestamp="1585770041653">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474213" />
-    <state width="2518" height="343" key="GridCell.Tab.1.center" timestamp="1585498474212">
+    <state width="2518" height="412" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041653" />
+    <state width="2518" height="412" key="GridCell.Tab.1.center" timestamp="1585770041652">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474212" />
-    <state width="2518" height="343" key="GridCell.Tab.1.left" timestamp="1585498474212">
+    <state width="2518" height="412" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041652" />
+    <state width="2518" height="412" key="GridCell.Tab.1.left" timestamp="1585770041652">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474212" />
-    <state width="2518" height="343" key="GridCell.Tab.1.right" timestamp="1585498474213">
+    <state width="2518" height="412" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041652" />
+    <state width="2518" height="412" key="GridCell.Tab.1.right" timestamp="1585770041653">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="343" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498474213" />
+    <state width="2518" height="412" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585770041653" />
     <state x="940" y="449" key="RollbackChangesDialog" timestamp="1583668876455">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -387,25 +376,25 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="949" y="401" key="antBuildFilePropertiesDialogDimension/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1583613508295" />
-    <state x="934" y="566" key="com.intellij.ide.util.TipDialog" timestamp="1585493348290">
+    <state x="934" y="566" key="com.intellij.ide.util.TipDialog" timestamp="1585581096143">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="934" y="566" key="com.intellij.ide.util.TipDialog/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585493348290" />
+    <state x="934" y="566" key="com.intellij.ide.util.TipDialog/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585581096143" />
     <state x="1095" y="475" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1583659923667">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1095" y="475" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1583659923667" />
-    <state x="936" y="496" width="689" height="472" key="find.popup" timestamp="1585499472849">
+    <state x="936" y="496" width="689" height="472" key="find.popup" timestamp="1585769773860">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="936" y="496" width="689" height="472" key="find.popup/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585499472849" />
+    <state x="936" y="496" width="689" height="472" key="find.popup/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585769773860" />
     <state x="1043" y="360" width="693" height="744" key="refactoring.ChangeSignatureDialog" timestamp="1585230587505">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1043" y="360" width="693" height="744" key="refactoring.ChangeSignatureDialog/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585230587505" />
-    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1585498318954">
+    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1585500223769">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585498318954" />
+    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup/0.23.2560.1417/-1680.413.1680.1027@0.23.2560.1417" timestamp="1585500223769" />
   </component>
 </project>

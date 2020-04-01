@@ -168,7 +168,7 @@ FREObject ANXNotificationsCreateNotificationChannel(FREContext context, void* fu
 
 FREObject ANXNotificationsVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXNotificationsVersion");
-    return [ANXNotificationsConversionRoutines convertNSStringToFREObject:@"1"];
+    return [ANXNotificationsConversionRoutines convertNSStringToFREObject:@"2"];
 }
 
 #pragma mark ContextInitialize/ContextFinalizer
