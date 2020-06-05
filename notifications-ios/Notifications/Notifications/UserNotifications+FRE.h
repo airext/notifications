@@ -52,4 +52,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark - NSDateComponents
+
+@interface NSDateComponents (FRE)
+
++ (instancetype)dateComponentsWithFREObject:(FREObject)object;
+
+@end
+
 NS_ASSUME_NONNULL_END

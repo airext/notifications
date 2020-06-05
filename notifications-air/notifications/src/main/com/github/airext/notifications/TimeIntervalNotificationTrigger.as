@@ -10,6 +10,10 @@ public class TimeIntervalNotificationTrigger extends NotificationTrigger {
         _timeInterval = timeInterval;
     }
 
+    override public function get type(): int {
+        return NotificationTriggerType.timeInterval;
+    }
+
     private var _timeInterval: Number;
     public function get timeInterval(): Number {
         return _timeInterval;
@@ -23,7 +27,7 @@ public class TimeIntervalNotificationTrigger extends NotificationTrigger {
         _exactTime = value;
     }
 
-    public function toString(): String {
+    override public function toString(): String {
         return '[TimeIntervalNotificationTrigger(timeInterval="'+timeInterval+'", exactTime="'+exactTime+'", repeats="'+repeats+'")]';
     }
 }

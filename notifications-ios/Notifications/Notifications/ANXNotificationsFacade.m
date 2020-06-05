@@ -15,6 +15,7 @@
 #import "ANXNotificationCenter.h"
 #import "ANXNotificationCenterSettingsVO.h"
 #import "ANXNotificationBooleanVO.h"
+#import "ANXNotificationsDateVO.h"
 #import "UserNotifications+FRE.h"
 
 @implementation ANXNotificationsFacade
@@ -150,6 +151,22 @@ FREObject ANXNotificationsRemoveAllPendingNotificationRequests(FREContext contex
     return NULL;
 }
 
+FREObject ANXNotificationsNextTriggerDateForRequest(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    NSLog(@"ANXNotificationsNextTriggerDateForRequest");
+
+    ANXBridgeCall* call = [ANXBridge call:context];
+
+    if (argc > 0) {
+        NSInteger identifier = [ANXNotificationsConversionRoutines convertFREObjectToNSInteger:argv[0] withDefault:0];
+
+        [ANXNotificationCenter.sharedInstance nextTriggerDateForPendingNotificationRequestWithIdentifier:[NSString stringWithFormat:@"%li", (long)identifier] withCompletion:^(NSDate* result) {
+            [call result:[ANXNotificationsDateVO withValue:result]];
+        }];
+    }
+
+    return [call toFREObject];
+}
+
 FREObject ANXNotificationsCanOpenSettings(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXNotificationsCanOpenSettings");
     return NULL;
@@ -168,7 +185,7 @@ FREObject ANXNotificationsCreateNotificationChannel(FREContext context, void* fu
 
 FREObject ANXNotificationsVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXNotificationsVersion");
-    return [ANXNotificationsConversionRoutines convertNSStringToFREObject:@"2"];
+    return [ANXNotificationsConversionRoutines convertNSStringToFREObject:@"5"];
 }
 
 #pragma mark ContextInitialize/ContextFinalizer
@@ -190,6 +207,7 @@ void ANXNotificationsContextInitializer(void* extData, const uint8_t* ctxType, F
         { (const uint8_t*)"hasPendingRequest", NULL, &ANXNotificationsHasPendingNotificationRequest },
         { (const uint8_t*)"removePendingNotificationRequests", NULL, &ANXNotificationsRemovePendingNotificationRequests },
         { (const uint8_t*)"removeAllPendingNotificationRequests", NULL, &ANXNotificationsRemoveAllPendingNotificationRequests },
+        { (const uint8_t*)"nextTriggerDateForRequest", NULL, &ANXNotificationsNextTriggerDateForRequest },
 
         { (const uint8_t*)"canOpenSettings", NULL, &ANXNotificationsCanOpenSettings },
         { (const uint8_t*)"openSettings", NULL, &ANXNotificationsOpenSettings },

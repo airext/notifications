@@ -36,6 +36,8 @@
 + (instancetype)triggerWithFREObject:(FREObject)object {
     NSInteger type = [ANXNotificationsConversionRoutines readNSIntegerFrom:object field:@"type" withDefaultValue:0];
     switch (type) {
+        case 1:
+            return [UNCalendarNotificationTrigger triggerWithFREObject:object];
         default:
             return [UNTimeIntervalNotificationTrigger triggerWithFREObject:object];
     }
@@ -43,10 +45,14 @@
 
 @end
 
-#pragma mark UNTimeIntervalNotificationTrigger
+#pragma mark UNCalendarNotificationTrigger
 
 @implementation UNCalendarNotificationTrigger (FRE)
 
++ (instancetype)triggerWithFREObject:(FREObject)object {
+    return [self triggerWithDateMatchingComponents:[NSDateComponents dateComponentsWithFREObject:[ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"dateComponents"]]
+                                           repeats:[ANXNotificationsConversionRoutines readBooleanFrom:object field:@"repeats" withDefaultValue:NO]];
+}
 
 @end
 
@@ -72,6 +78,58 @@
     } else {
         return UNNotificationSound.defaultSound;
     }
+}
+
+@end
+
+#pragma mark - NSDateComponents
+
+@implementation NSDateComponents (FRE)
+
++ (instancetype)dateComponentsWithFREObject:(FREObject)object {
+    NSDateComponents* components = [[NSDateComponents alloc] init];
+
+    FREObject year = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"year"];
+    if (year != NULL) {
+        components.year = [ANXNotificationsConversionRoutines readNSIntegerFrom:year field:@"value" withDefaultValue:0];
+    }
+
+    FREObject month = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"month"];
+    if (month != NULL) {
+        components.month = [ANXNotificationsConversionRoutines readNSIntegerFrom:month field:@"value" withDefaultValue:0];
+    }
+
+    FREObject weekday = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"weekday"];
+    if (weekday != NULL) {
+        components.weekday = [ANXNotificationsConversionRoutines readNSIntegerFrom:weekday field:@"value" withDefaultValue:0];
+    }
+
+    FREObject weekdayOrdinal = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"weekdayOrdinal"];
+    if (weekdayOrdinal != NULL) {
+        components.weekdayOrdinal = [ANXNotificationsConversionRoutines readNSIntegerFrom:weekdayOrdinal field:@"value" withDefaultValue:0];
+    }
+
+    FREObject day = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"day"];
+    if (day != NULL) {
+        components.day = [ANXNotificationsConversionRoutines readNSIntegerFrom:day field:@"value" withDefaultValue:0];
+    }
+
+    FREObject hour = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"hour"];
+    if (hour != NULL) {
+        components.hour = [ANXNotificationsConversionRoutines readNSIntegerFrom:hour field:@"value" withDefaultValue:0];
+    }
+
+    FREObject minute = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"minute"];
+    if (minute != NULL) {
+        components.minute = [ANXNotificationsConversionRoutines readNSIntegerFrom:minute field:@"value" withDefaultValue:0];
+    }
+
+    FREObject second = [ANXNotificationsConversionRoutines readFREObjectFrom:object field:@"second"];
+    if (second != NULL) {
+        components.second = [ANXNotificationsConversionRoutines readNSIntegerFrom:second field:@"value" withDefaultValue:0];
+    }
+
+    return components;
 }
 
 @end

@@ -12,12 +12,11 @@
 
 #pragma mark Write object's properties
 
-+(void) setStringTo: (FREObject) object withValue: (NSString *) value forProperty: (NSString *) property
++ (void)setStringTo: (FREObject) object withValue: (NSString *) value forProperty: (NSString *) property
 {
     FREObject temp = [self convertNSStringToFREObject: value];
 
-    if (temp == NULL)
-    {
+    if (temp == NULL) {
         return;
     }
 
@@ -26,7 +25,7 @@
 
 #pragma mark Conversion methods
 
-+(FREObject) convertNSStringToFREObject:(NSString*) string
++ (FREObject)convertNSStringToFREObject:(NSString*) string
 {
     if (string == nil) return NULL;
 
@@ -37,13 +36,14 @@
     FREObject converted;
     FREResult result = FRENewObjectFromUTF8((uint32_t) length + 1, (const uint8_t*) utf8String, &converted);
 
-    if (result != FRE_OK)
-    return NULL;
+    if (result != FRE_OK) {
+        return NULL;
+    }
 
     return converted;
 }
 
-+(NSString*) convertFREObjectToNSString: (FREObject) string
++ (NSString*)convertFREObjectToNSString: (FREObject) string
 {
     FREResult result;
 
@@ -52,36 +52,58 @@
 
     result = FREGetObjectAsUTF8(string, &length, &tempValue);
 
-    if (result != FRE_OK)
-    return nil;
+    if (result != FRE_OK) {
+        return nil;
+    }
 
     return [NSString stringWithUTF8String: (char*) tempValue];
 }
 
++ (FREObject)convertNSDateToFREObject:(NSDate*)date {
+    NSTimeInterval timestamp = date.timeIntervalSince1970 * 1000;
 
-+(NSDate*) convertFREObjectToNSDate: (FREObject) date
+    FREObject time;
+    if (FRENewObjectFromDouble(timestamp, &time) != FRE_OK) {
+        return NULL;
+    }
+
+    FREObject converted;
+    if (FRENewObject((const uint8_t*) "Date", 0, NULL, &converted, NULL) != FRE_OK) {
+        return NULL;
+    }
+
+    if (FRESetObjectProperty(converted, (const uint8_t *) "time", time, NULL) != FRE_OK) {
+        return NULL;
+    }
+
+    return converted;
+}
+
++ (NSDate*)convertFREObjectToNSDate: (FREObject) date
 {
     FREResult result;
 
     FREObject time;
     result = FREGetObjectProperty(date, (const uint8_t*) "time", &time, NULL);
 
-    if (result != FRE_OK)
-    return nil;
+    if (result != FRE_OK) {
+        return nil;
+    }
 
     NSTimeInterval interval;
 
     result = FREGetObjectAsDouble(time, &interval);
 
-    if (result != FRE_OK)
-    return nil;
+    if (result != FRE_OK) {
+        return nil;
+    }
 
     interval = interval / 1000;
 
     return [NSDate dateWithTimeIntervalSince1970:interval];
 }
 
-+(NSUInteger) convertFREObjectToNSUInteger: (FREObject) integer withDefault: (NSUInteger) defaultValue;
++ (NSUInteger)convertFREObjectToNSUInteger: (FREObject) integer withDefault: (NSUInteger) defaultValue;
 {
     FREResult result;
 
@@ -89,25 +111,27 @@
 
     result = FREGetObjectAsUint32(integer, &tempValue);
 
-    if (result != FRE_OK)
-    return defaultValue;
+    if (result != FRE_OK) {
+        return defaultValue;
+    }
 
     return (NSUInteger) tempValue;
 }
 
-+(NSInteger) convertFREObjectToNSInteger: (FREObject) integer withDefault: (NSInteger) defaultValue {
++ (NSInteger)convertFREObjectToNSInteger: (FREObject) integer withDefault: (NSInteger) defaultValue {
     FREResult result;
 
     int32_t tempValue;
     result = FREGetObjectAsInt32(integer, &tempValue);
 
-    if (result != FRE_OK)
-    return defaultValue;
+    if (result != FRE_OK) {
+        return defaultValue;
+    }
 
     return (NSUInteger) tempValue;
 }
 
-+(FREObject) convertNSIntegerToFREObject: (NSInteger) integer {
++ (FREObject)convertNSIntegerToFREObject: (NSInteger) integer {
     FREObject result;
     if (FRENewObjectFromInt32((int32_t)integer, &result) == FRE_OK) {
         return result;
@@ -116,7 +140,7 @@
     }
 }
 
-+(FREObject) convertLongLongToFREObject: (long long) number
++ (FREObject)convertLongLongToFREObject: (long long) number
 {
     FREObject result;
     FRENewObjectFromUint32((uint32_t) number, &result);
@@ -124,7 +148,7 @@
     return result;
 }
 
-+(double) convertFREObjectToDouble: (FREObject) number
++ (double)convertFREObjectToDouble: (FREObject) number
 {
     FREResult result;
 
@@ -132,13 +156,14 @@
 
     result = FREGetObjectAsDouble(number, &value);
 
-    if (result != FRE_OK)
-    return 0.0;
+    if (result != FRE_OK) {
+        return 0.0;
+    }
 
     return value;
 }
 
-+(FREObject) convertDoubleToFREObject: (double) value {
++ (FREObject)convertDoubleToFREObject: (double) value {
 
     FREObject result;
     if (FRENewObjectFromDouble(value, &result) != FRE_OK) {
@@ -148,26 +173,28 @@
     return result;
 }
 
-+(FREObject) convertBoolToFREObject: (BOOL) value
++ (FREObject)convertBoolToFREObject: (BOOL) value
 {
     FREObject result = NULL;
 
-    if (value)
-    FRENewObjectFromBool((uint32_t) 1, &result);
-    else
-    FRENewObjectFromBool((uint32_t) 0, &result);
+    if (value) {
+        FRENewObjectFromBool((uint32_t) 1, &result);
+    } else {
+        FRENewObjectFromBool((uint32_t) 0, &result);
+    }
 
     return result;
 }
 
-+(BOOL) convertFREObjectToBool: (FREObject) value
++ (BOOL)convertFREObjectToBool: (FREObject) value
 {
     uint32_t tempValue;
 
     FREResult result = FREGetObjectAsBool(value, &tempValue);
 
-    if (result != FRE_OK)
-    return NO;
+    if (result != FRE_OK) {
+        return NO;
+    }
 
     return tempValue > 0;
 }

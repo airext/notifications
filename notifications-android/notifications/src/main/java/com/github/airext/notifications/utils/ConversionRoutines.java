@@ -2,6 +2,9 @@ package com.github.airext.notifications.utils;
 
 import com.adobe.fre.FREArray;
 import com.adobe.fre.FREObject;
+import com.adobe.fre.FREWrongThreadException;
+
+import java.util.Date;
 
 /**
  * Created by max on 12/5/17.
@@ -87,4 +90,17 @@ public class ConversionRoutines {
         }
         return new long[0];
     }
+
+    public static FREObject convertDateToFREObject(Date date) {
+        try {
+            FREObject time = FREObject.newObject(date.getTime());
+            FREObject converted = FREObject.newObject("Date", null);
+            converted.setProperty("time", time);
+            return converted;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

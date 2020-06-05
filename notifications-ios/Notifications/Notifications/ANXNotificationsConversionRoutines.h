@@ -11,27 +11,28 @@
 
 @interface ANXNotificationsConversionRoutines : NSObject
 
-+(void) setStringTo: (FREObject) object withValue: (NSString *) value forProperty: (NSString *) property;
++ (void)setStringTo: (FREObject) object withValue: (NSString *) value forProperty: (NSString *) property;
 
 #pragma mark Conversion methods
 
-+(FREObject) convertNSStringToFREObject:(NSString*) string;
-+(NSString*) convertFREObjectToNSString: (FREObject) string;
++ (FREObject)convertNSStringToFREObject:(NSString*) string;
++ (NSString*)convertFREObjectToNSString: (FREObject) string;
 
-+(NSDate*) convertFREObjectToNSDate: (FREObject) date;
++ (FREObject)convertNSDateToFREObject:(NSDate*)date;
++ (NSDate*)convertFREObjectToNSDate: (FREObject) date;
 
-+(NSUInteger) convertFREObjectToNSUInteger: (FREObject) integer withDefault: (NSUInteger) defaultValue;
++ (NSUInteger)convertFREObjectToNSUInteger: (FREObject) integer withDefault: (NSUInteger) defaultValue;
 
-+(NSInteger) convertFREObjectToNSInteger: (FREObject) integer withDefault: (NSInteger) defaultValue;
-+(FREObject) convertNSIntegerToFREObject: (NSInteger) integer;
++ (NSInteger)convertFREObjectToNSInteger: (FREObject) integer withDefault: (NSInteger) defaultValue;
++ (FREObject)convertNSIntegerToFREObject: (NSInteger) integer;
 
-+(FREObject) convertLongLongToFREObject: (long long) number;
++ (FREObject)convertLongLongToFREObject: (long long) number;
 
-+(double) convertFREObjectToDouble: (FREObject) number;
-+(FREObject) convertDoubleToFREObject: (double) value;
++ (double)convertFREObjectToDouble: (FREObject) number;
++ (FREObject)convertDoubleToFREObject: (double) value;
 
-+(BOOL) convertFREObjectToBool: (FREObject) value;
-+(FREObject) convertBoolToFREObject: (BOOL) value;
++ (BOOL)convertFREObjectToBool: (FREObject) value;
++ (FREObject)convertBoolToFREObject: (BOOL) value;
 
 + (NSString*)readNSStringFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSString*)defaultValue;
 + (NSInteger)readNSIntegerFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSInteger)defaultValue;

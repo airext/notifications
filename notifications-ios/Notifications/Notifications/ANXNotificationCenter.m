@@ -107,6 +107,12 @@ static BOOL _isInForeground;
 # pragma mark Schedule Notification
 
 - (void)addNotificationRequestWithIdentifier:(NSString*)identifier trigger:(UNNotificationTrigger*)trigger content:(UNNotificationContent*)content withCompletion:(AddNotificationRequestCompletion)completion {
+    if ([trigger isKindOfClass:UNCalendarNotificationTrigger.class]) {
+        NSLog(@"ANX >>> nextTriggerDate = %@", ((UNCalendarNotificationTrigger*)trigger).nextTriggerDate);
+    } else if ([trigger isKindOfClass:UNTimeIntervalNotificationTrigger.class]) {
+        NSLog(@"ANX >>> nextTriggerDate = %@", ((UNTimeIntervalNotificationTrigger*)trigger).nextTriggerDate);
+    }
+
     [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         switch (settings.authorizationStatus) {
             case UNAuthorizationStatusAuthorized : {
@@ -148,6 +154,29 @@ static BOOL _isInForeground;
             }
         }
         completion(false);
+    }];
+}
+
+- (void)nextTriggerDateForPendingNotificationRequestWithIdentifier:(NSString*)identifier withCompletion:(NextTriggerDateForPendingNotificationRequestCompletion)completion {
+    NSLog(@"[ANX] Requesting pending notification requests");
+    [UNUserNotificationCenter.currentNotificationCenter getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        NSLog(@"[ANX] Pending notification requests received");
+        for (UNNotificationRequest* request in requests) {
+            if ([request.identifier isEqualToString:identifier]) {
+                NSLog(@"[ANX] Pending notification request with identifier \"%@\" found", identifier);
+                if ([request.trigger isKindOfClass:UNTimeIntervalNotificationTrigger.class]) {
+                    NSLog(@"[ANX] Triggier type is UNTimeIntervalNotificationTrigger");
+                    completion(((UNTimeIntervalNotificationTrigger*)request.trigger).nextTriggerDate);
+                } else if ([request.trigger isKindOfClass:UNCalendarNotificationTrigger.class]) {
+                    NSLog(@"[ANX] Triggier type is UNCalendarNotificationTrigger");
+                    completion(((UNCalendarNotificationTrigger*)request.trigger).nextTriggerDate);
+                } else {
+                    NSLog(@"[ANX] Unknown triggier type: %@", request.trigger);
+                }
+                return;
+            }
+        }
+        completion(NULL);
     }];
 }
 

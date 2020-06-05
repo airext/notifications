@@ -10,6 +10,7 @@ import com.github.airext.Notifications;
 import com.github.airext.bridge.Bridge;
 import com.github.airext.bridge.Call;
 import com.github.airext.notifications.NotificationCenter;
+import com.github.airext.notifications.triggers.NotificationTrigger;
 import com.github.airext.notifications.utils.ConversionRoutines;
 import com.github.airext.notifications.utils.DispatchQueue;
 
@@ -31,15 +32,13 @@ public class AddRequestFunction implements FREFunction {
         String soundName    = null;
         int color           = Notification.COLOR_DEFAULT;
         String userInfo     = null;
-        double timeInterval = 0.0;
         String channelId    = null;
-        Boolean exactTime   = false;
-        Boolean repeats     = false;
+
+        NotificationTrigger trigger;
 
         try {
             FREObject request = args[0];
             FREObject content = request.getProperty("content");
-            FREObject trigger = request.getProperty("trigger");
 
             identifier = ConversionRoutines.readIntPropertyFrom(request, "identifier", 0);
             channelId  = ConversionRoutines.readStringPropertyFrom(request, "channelId");
@@ -58,23 +57,16 @@ public class AddRequestFunction implements FREFunction {
                 userInfo = userInfoAsFREObject.getAsString();
             }
 
-            if (trigger != null) {
-                timeInterval = ConversionRoutines.readDoublePropertyFrom(trigger, "timeInterval", 0);
-                exactTime    = ConversionRoutines.readBooleanPropertyFrom(trigger, "exactTime", false);
-                repeats      = ConversionRoutines.readBooleanPropertyFrom(trigger, "repeats", false);
-            }
+            trigger = NotificationTrigger.fromFREObject(request.getProperty("trigger"));
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
 
         final Call call = Bridge.call(context);
 
-        if (timeInterval < 0) {
-            timeInterval = 0;
-        }
-
-        NotificationCenter.scheduleNotification(activity, identifier, timeInterval, title, body, soundName, color, userInfo, channelId, exactTime, repeats);
+        NotificationCenter.scheduleNotification(activity, identifier, trigger, title, body, soundName, color, userInfo, channelId);
 
         DispatchQueue.dispatch_async(activity, new Runnable() {
             @Override

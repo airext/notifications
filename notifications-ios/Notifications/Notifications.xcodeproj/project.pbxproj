@@ -26,6 +26,9 @@
 		50CE8457242CECBF0046C228 /* ANXNotificationBooleanVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 50CE8455242CECBF0046C228 /* ANXNotificationBooleanVO.h */; };
 		50CE8458242CECBF0046C228 /* ANXNotificationBooleanVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CE8456242CECBF0046C228 /* ANXNotificationBooleanVO.m */; };
 		50CE8459242CECBF0046C228 /* ANXNotificationBooleanVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CE8456242CECBF0046C228 /* ANXNotificationBooleanVO.m */; };
+		50DFBD2A24816406004FC401 /* ANXNotificationsDateVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DFBD2824816406004FC401 /* ANXNotificationsDateVO.h */; };
+		50DFBD2B24816406004FC401 /* ANXNotificationsDateVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DFBD2924816406004FC401 /* ANXNotificationsDateVO.m */; };
+		50DFBD2C24816406004FC401 /* ANXNotificationsDateVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DFBD2924816406004FC401 /* ANXNotificationsDateVO.m */; };
 		50EAB1862415127A00AAF644 /* Adobe AIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043A75924143B880010ABEB /* Adobe AIR.framework */; };
 		50EAB187241515DF00AAF644 /* ANXNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A7457820E51F2F00F07854 /* ANXNotificationCenter.h */; };
 		50EAB188241515DF00AAF644 /* ANXNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */; };
@@ -74,6 +77,8 @@
 		50A7457920E51F2F00F07854 /* ANXNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationCenter.m; sourceTree = "<group>"; };
 		50CE8455242CECBF0046C228 /* ANXNotificationBooleanVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationBooleanVO.h; sourceTree = "<group>"; };
 		50CE8456242CECBF0046C228 /* ANXNotificationBooleanVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationBooleanVO.m; sourceTree = "<group>"; };
+		50DFBD2824816406004FC401 /* ANXNotificationsDateVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNotificationsDateVO.h; sourceTree = "<group>"; };
+		50DFBD2924816406004FC401 /* ANXNotificationsDateVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNotificationsDateVO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,8 @@
 				5043A73B2412DDD60010ABEB /* UserNotifications+FRE.m */,
 				50CE8455242CECBF0046C228 /* ANXNotificationBooleanVO.h */,
 				50CE8456242CECBF0046C228 /* ANXNotificationBooleanVO.m */,
+				50DFBD2824816406004FC401 /* ANXNotificationsDateVO.h */,
+				50DFBD2924816406004FC401 /* ANXNotificationsDateVO.m */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 			files = (
 				50EAB187241515DF00AAF644 /* ANXNotificationCenter.h in Headers */,
 				50EAB189241515DF00AAF644 /* ANXNotificationCenterSettingsVO.h in Headers */,
+				50DFBD2A24816406004FC401 /* ANXNotificationsDateVO.h in Headers */,
 				5043A76424143BEC0010ABEB /* ANXNotifications.h in Headers */,
 				5043A76224143BEC0010ABEB /* ANXNotificationsConversionRoutines.h in Headers */,
 				50CE8457242CECBF0046C228 /* ANXNotificationBooleanVO.h in Headers */,
@@ -305,6 +313,7 @@
 				50EAB188241515DF00AAF644 /* ANXNotificationCenter.m in Sources */,
 				5043A76524143BEC0010ABEB /* ANXNotifications.m in Sources */,
 				5043A76324143BEC0010ABEB /* ANXNotificationsConversionRoutines.m in Sources */,
+				50DFBD2C24816406004FC401 /* ANXNotificationsDateVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +328,7 @@
 				50A7457A20E51F2F00F07854 /* ANXNotificationCenter.m in Sources */,
 				50A7457420E51DBD00F07854 /* ANXNotifications.m in Sources */,
 				50A7457120E51BD700F07854 /* ANXNotificationsConversionRoutines.m in Sources */,
+				50DFBD2B24816406004FC401 /* ANXNotificationsDateVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

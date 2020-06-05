@@ -137,6 +137,10 @@ public class Notifications extends EventDispatcher {
         trace("Notifications extension is not supported for " + Capabilities.os);
     }
 
+    public function nextTriggerDateForRequestWithIdentifier(identifier: int, callback: Function): void {
+        trace("Notifications extension is not supported for " + Capabilities.os);
+    }
+
     //-------------------------------------
     //  MARK: Dispose
     //-------------------------------------

@@ -1,8 +1,8 @@
 //
-//  ANXNotificationBooleanVO.h
+//  ANXNotificationsDateVO.h
 //  Notifications
 //
-//  Created by Max Rozdobudko on 3/26/20.
+//  Created by Max Rozdobudko on 5/29/20.
 //  Copyright © 2020 Max Rozdobudko. All rights reserved.
 //
 
@@ -11,11 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ANXNotificationBooleanVO : NSObject
+@interface ANXNotificationsDateVO : NSObject
 
-+ (instancetype)withValue:(BOOL)value;
++ (instancetype)withValue:(NSDate*)value;
 
-- (id)initWithValue:(BOOL)value;
+- (id)initWithValue:(NSDate*)value;
 
 - (FREObject)toFREObject;
 

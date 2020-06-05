@@ -25,11 +25,7 @@ public class NotificationCenterSettings implements CallResultValue {
             FREObject settings = FREObject.newObject("com.github.airext.notifications.NotificationCenterSettings", null);
             settings.setProperty("authorizationStatus", FREObject.newObject(getAuthorizationStatus()));
             return settings;
-        } catch (FREASErrorException e) {
-            e.printStackTrace();
-        } catch (FRENoSuchNameException e) {
-            e.printStackTrace();
-        } catch (FREReadOnlyException e) {
+        } catch (FREASErrorException | FRENoSuchNameException | FREReadOnlyException e) {
             e.printStackTrace();
         }
         return null;

@@ -5,6 +5,7 @@ import android.app.*;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
@@ -14,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
+import com.github.airext.notifications.triggers.NotificationTrigger;
 import com.github.airext.notifications.utils.Resources;
 import com.github.airext.Notifications;
 import com.github.airext.notifications.data.NotificationCenterSettings;
@@ -27,6 +29,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -47,6 +52,8 @@ public class NotificationCenter {
     private static final String colorKey      = "com.github.airext.notifications.NotificationCenter.color";
     private static final String userInfoKey   = "com.github.airext.notifications.NotificationCenter.params";
     private static final String channelIdKey  = "com.github.airext.notifications.NotificationCenter.channelId";
+    private static final String triggerAtKey  = "com.github.airext.notifications.NotificationCenter.triggerAt";
+    private static final String intervalKey   = "com.github.airext.notifications.NotificationCenter.timeInterval";
 
     private static final int REQUEST_PERMISSIONS_CODE = 42;
 
@@ -187,8 +194,8 @@ public class NotificationCenter {
 
     // MARK: Schedule notification
 
-    public static void scheduleNotification(Context context, int identifier, double timeInterval, String title, String body, String sound, int color, String userInfo, String channelId, Boolean exactTime, Boolean repeats) {
-        Log.d(TAG, "scheduleNotification(" + identifier + "," + timeInterval + "," + title + "," + body + "," + sound + "," + color + "," + userInfo + "," + channelId + "," + exactTime +"," + repeats + ")");
+    public static void scheduleNotification(Context context, int identifier, NotificationTrigger trigger, String title, String body, String sound, int color, String userInfo, String channelId) {
+        Log.d(TAG, "scheduleNotification(" + identifier + ", " + trigger + ", " + title + ", " + body + ", " + sound + ", " + color + ", " + userInfo + ", " + channelId + ")");
 
         // cancel already scheduled reminders
         removePendingNotificationWithId(context, identifier);
@@ -200,6 +207,9 @@ public class NotificationCenter {
 
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
+        long triggerAt = trigger.getTriggerAt();
+        long interval  = trigger.getTriggerInterval();
+
         Intent intent = new Intent(context, LocalNotificationBroadcastReceiver.class);
         intent.putExtra(identifierKey, identifier);
         intent.putExtra(titleKey, title);
@@ -208,6 +218,8 @@ public class NotificationCenter {
         intent.putExtra(colorKey, color);
         intent.putExtra(userInfoKey, userInfo);
         intent.putExtra(channelIdKey, channelId);
+        intent.putExtra(triggerAtKey, triggerAt);
+        intent.putExtra(intervalKey, interval);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -217,24 +229,21 @@ public class NotificationCenter {
             return;
         }
 
-        long interval = (long)timeInterval * 1000;
-
-        Calendar calendar = Calendar.getInstance();
-        long triggerAt = calendar.getTimeInMillis() + interval;
-
-        if (repeats) {
-            if (exactTime) {
+        if (trigger.shouldRepeat()) {
+            if (trigger.isExactTime()) {
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, triggerAt, interval, pendingIntent);
             } else {
                 alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, triggerAt, interval, pendingIntent);
             }
         } else {
-            if (exactTime) {
+            if (trigger.isExactTime()) {
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
             } else {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
             }
         }
+
+        _intents.put(identifier, intent);
     }
 
     public static void removePendingNotificationWithId(Context context, int identifier) {
@@ -267,6 +276,31 @@ public class NotificationCenter {
         Intent intent = new Intent(context, LocalNotificationBroadcastReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_NO_CREATE);
         return pendingIntent != null;
+    }
+
+    private static Map<Integer, Intent> _intents = new HashMap<>();
+
+    public static Date nextTriggerDateForPendingNotification(Context context, int identifier) {
+        Intent intent = _intents.get(identifier);
+        if (intent == null) {
+            return null;
+        }
+
+        long triggerAtInMilliseconds = intent.getLongExtra(triggerAtKey, 0);
+        long intervalInMilliseconds  = intent.getLongExtra(intervalKey, 0);
+
+        Log.d(TAG, "triggerAt: " + triggerAtInMilliseconds + ", interval: " + intervalInMilliseconds);
+
+        Calendar triggerAt = Calendar.getInstance();
+        triggerAt.setTimeInMillis(triggerAtInMilliseconds);
+
+        Calendar now = Calendar.getInstance();
+
+        if (now.getTimeInMillis() > triggerAt.getTimeInMillis()) {
+            triggerAt.setTimeInMillis(triggerAt.getTimeInMillis() + intervalInMilliseconds);
+        }
+
+        return triggerAt.getTime();
     }
 
     public static void removeAllPendingNotificationRequests(Context context) {

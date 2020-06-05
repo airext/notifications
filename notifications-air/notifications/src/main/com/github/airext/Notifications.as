@@ -233,6 +233,17 @@ public class Notifications extends EventDispatcher {
         context.call("removeAllPendingNotificationRequests");
     }
 
+    public function nextTriggerDateForRequestWithIdentifier(identifier: int, callback: Function): void {
+        trace("Notifications.nextTriggerDateForRequestWithIdentifier("+identifier+")");
+        bridge(context).call("nextTriggerDateForRequest", identifier).callback(function(error: Error, value: Object): void {
+            if (callback.length == 2) {
+                callback(value, error);
+            } else {
+                callback(value);
+            }
+        });
+    }
+
     //-------------------------------------
     //  MARK: Work with background
     //-------------------------------------

@@ -7,6 +7,9 @@
     <fx:Script>
         <![CDATA[
         import com.github.airext.Notifications;
+        import com.github.airext.data.Int;
+        import com.github.airext.notifications.CalendarNotificationTrigger;
+        import com.github.airext.notifications.DateComponents;
         import com.github.airext.notifications.NotificationCenterAuthorizationOptions;
         import com.github.airext.notifications.NotificationCenterEvent;
         import com.github.airext.notifications.NotificationCenterSettings;
@@ -14,6 +17,7 @@
         import com.github.airext.notifications.NotificationContent;
         import com.github.airext.notifications.NotificationRequest;
         import com.github.airext.notifications.NotificationSound;
+        import com.github.airext.notifications.NotificationTrigger;
         import com.github.airext.notifications.TimeIntervalNotificationTrigger;
         import com.github.airext.permissions.AuthorisationStatus;
         import com.github.airext.permissions.Permission;
@@ -60,6 +64,42 @@
             });
         }
 
+        private function createTimeIntervalTrigger(): TimeIntervalNotificationTrigger {
+            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8, false);
+            trigger.exactTime = true;
+            return trigger;
+        }
+
+        private function createWeeklyNotificationTrigger(): CalendarNotificationTrigger {
+            var now: Date = new Date();
+            var components: DateComponents = new DateComponents();
+            components.weekday = new Int(2);
+            components.hour = new Int(10);
+            components.minute = new Int(0);
+            var trigger: CalendarNotificationTrigger = new CalendarNotificationTrigger(components, true);
+            return trigger;
+        }
+
+        private function createDailyNotificationTrigger(): CalendarNotificationTrigger {
+            var now: Date = new Date();
+            var components: DateComponents = new DateComponents();
+            components.hour = new Int(10);
+            components.minute = new Int(0);
+            var trigger: CalendarNotificationTrigger = new CalendarNotificationTrigger(components, true);
+            return trigger;
+        }
+
+        private function createYearlyNotificationTrigger(): CalendarNotificationTrigger {
+            var now: Date = new Date();
+            var components: DateComponents = new DateComponents();
+            components.month = new Int((now.month + 1) % 12);
+            components.day = new Int(now.date);
+            components.hour = new Int(10);
+            components.minute = new Int(0);
+            var trigger: CalendarNotificationTrigger = new CalendarNotificationTrigger(components, true);
+            return trigger;
+        }
+
         private function doAddRequest(): void {
             var content: NotificationContent = new NotificationContent();
             content.title = "Title";
@@ -70,8 +110,8 @@
             content.sound = new NotificationSound("sub.caf");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: TimeIntervalNotificationTrigger = new TimeIntervalNotificationTrigger(8, false);
-            trigger.exactTime = true;
+            var trigger: NotificationTrigger = createDailyNotificationTrigger();
+
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
 
@@ -79,7 +119,7 @@
                 if (error) {
                     log(error);
                 } else {
-                    log("Notification requested: " + request, "at", new Date());
+                    log("Notification requested: " + request, "at", new Date(), " with trigger: " + trigger);
                 }
             });
         }
@@ -91,6 +131,16 @@
         }
 
         //
+
+        private function nextTriggerDateTapped(): void {
+            Notifications.shared.nextTriggerDateForRequestWithIdentifier(1, function (date: Date, error: Error): void {
+                if (date) {
+                    log("Next trigger date is: " + date);
+                } else {
+                    log("Error: " + error);
+                }
+            });
+        }
 
         public function cancelLatestRequestIfExists(): void {
             Notifications.shared.removePendingNotificationRequests(new <int>[1]);
@@ -157,6 +207,7 @@
         <f:Button label="createNotificationChannel" triggered="createNotificationChannel()" />
         <f:Button label="addRequest" triggered="addRequest()" />
         <f:Button label="hasPendingRequest" triggered="hasPendingNotificationTapped()" />
+        <f:Button label="nextTriggerDate" triggered="nextTriggerDateTapped()" />
         <f:Button label="cancelRequest" triggered="cancelLatestRequestIfExists()" />
         <f:Button label="IsEnabled" triggered="log(Notifications.isEnabled)" />
         <f:Button label="CanOpenSettings" triggered="log(Notifications.canOpenSettings)" />

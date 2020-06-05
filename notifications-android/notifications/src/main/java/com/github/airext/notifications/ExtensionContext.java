@@ -30,6 +30,7 @@ public class ExtensionContext extends FREContext {
         functions.put("openSettings", new OpenSettingsFunction());
         functions.put("createNotificationChannel", new CreateNotificationChannelFunction());
         functions.put("version", new VersionFunction());
+        functions.put("nextTriggerDateForRequest", new NextTriggerDateForRequestFunction());
 
         try {
             Bridge.setup(functions);

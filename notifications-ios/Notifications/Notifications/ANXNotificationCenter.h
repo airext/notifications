@@ -15,6 +15,7 @@ typedef void(^GetNotificationSettingsCompletion)(NSString *authorizationStatus);
 typedef void(^RequestAuthorizationCompletion)(BOOL granted, NSError* error);
 typedef void(^AddNotificationRequestCompletion)(NSError* error);
 typedef void(^HasPendingNotificationRequestCompletion)(BOOL result);
+typedef void(^NextTriggerDateForPendingNotificationRequestCompletion)(NSDate* result);
 
 @interface ANXNotificationCenter : NSObject
 
@@ -48,6 +49,7 @@ typedef void(^HasPendingNotificationRequestCompletion)(BOOL result);
 
 - (void)addNotificationRequestWithIdentifier:(NSString*)identifier trigger:(UNNotificationTrigger*)trigger content:(UNNotificationContent*)content withCompletion:(AddNotificationRequestCompletion)completion;
 - (void)hasPendingNotificationRequestWithIdentifier:(NSString*)identifier withCompletion:(HasPendingNotificationRequestCompletion)completion;
+- (void)nextTriggerDateForPendingNotificationRequestWithIdentifier:(NSString*)identifier withCompletion:(NextTriggerDateForPendingNotificationRequestCompletion)completion;
 - (void)removePendingNotificationRequestWithIdentifiers:(NSArray*)identifiers;
 - (void)removeAllPendingRequests;
 
