@@ -5,7 +5,6 @@ import android.app.*;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
@@ -15,14 +14,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
-import com.github.airext.notifications.triggers.NotificationTrigger;
-import com.github.airext.notifications.utils.Resources;
 import com.github.airext.Notifications;
 import com.github.airext.notifications.data.NotificationCenterSettings;
 import com.github.airext.notifications.receivers.LocalNotificationBroadcastReceiver;
-import com.github.airext.notifications.utils.AssetsUtil;
-import com.github.airext.notifications.utils.ContentProviderUtil;
-import com.github.airext.notifications.utils.DispatchQueue;
+import com.github.airext.notifications.triggers.NotificationTrigger;
+import com.github.airext.notifications.utils.*;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -30,8 +26,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -54,6 +48,7 @@ public class NotificationCenter {
     private static final String channelIdKey  = "com.github.airext.notifications.NotificationCenter.channelId";
     private static final String triggerAtKey  = "com.github.airext.notifications.NotificationCenter.triggerAt";
     private static final String intervalKey   = "com.github.airext.notifications.NotificationCenter.timeInterval";
+    private static final String repeatsKey    = "com.github.airext.notifications.NotificationCenter.repeats";
 
     private static final int REQUEST_PERMISSIONS_CODE = 42;
 
@@ -220,6 +215,7 @@ public class NotificationCenter {
         intent.putExtra(channelIdKey, channelId);
         intent.putExtra(triggerAtKey, triggerAt);
         intent.putExtra(intervalKey, interval);
+        intent.putExtra(repeatsKey, trigger.shouldRepeat());
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, identifier, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -243,11 +239,17 @@ public class NotificationCenter {
             }
         }
 
-        _intents.put(identifier, intent);
+        NotificationStorage storage = NotificationStorage.getInstance(context);
+        storage.set(intent, identifier);
+
+        Log.d(TAG, "Scheduled notification with id: '"+identifier+"', triggerAt: " + triggerAt + ", interval: " + interval);
     }
 
     public static void removePendingNotificationWithId(Context context, int identifier) {
         Log.d(TAG, "removePendingNotificationWithId");
+
+        NotificationStorage storage = NotificationStorage.getInstance(context);
+        storage.remove(identifier);
 
         ComponentName receiver = new ComponentName(context, LocalNotificationBroadcastReceiver.class);
         PackageManager pm = context.getPackageManager();
@@ -278,10 +280,11 @@ public class NotificationCenter {
         return pendingIntent != null;
     }
 
-    private static Map<Integer, Intent> _intents = new HashMap<>();
-
     public static Date nextTriggerDateForPendingNotification(Context context, int identifier) {
-        Intent intent = _intents.get(identifier);
+        Log.d(TAG, "nextTriggerDateForPendingNotification");
+
+        NotificationStorage storage = NotificationStorage.getInstance(context);
+        Intent intent = storage.get(identifier);
         if (intent == null) {
             return null;
         }
@@ -384,12 +387,22 @@ public class NotificationCenter {
     }
 
     public static void handleAlarmReceived(Context context, Intent intent) {
-        Log.d(TAG, "handleAlarmReceived");
+        int identifier  = intent.getIntExtra(identifierKey, -1);
+        long triggerAt  = intent.getLongExtra(triggerAtKey, -1);
+        long interval   = intent.getLongExtra(intervalKey, -1);
+        boolean repeats = intent.getBooleanExtra(repeatsKey, false);
+
+        Log.d(TAG, "handleAlarmReceived id: '"+ identifier +"', triggerAt: "+ triggerAt +", interval: " + interval);
 
         if (isInForeground()) {
             notifyAppWithDataIfAvailable(context, intent, true);
         } else {
             showNotification(context, intent);
+        }
+
+        if (!repeats && identifier != -1) {
+            NotificationStorage storage = NotificationStorage.getInstance(context);
+            storage.remove(identifier);
         }
     }
 

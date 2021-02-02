@@ -44,14 +44,18 @@ public class CalendarNotificationTrigger extends NotificationTrigger {
         Calendar calendar = Calendar.getInstance();
 
         if (dateComponents.getYear() instanceof Integer) {
-            calendar.add(Calendar.YEAR, (int)dateComponents.getYear());
+            calendar.set(Calendar.YEAR, (int)dateComponents.getYear());
         }
 
         if (dateComponents.getMonth() instanceof  Integer) {
             calendar.set(Calendar.MONTH, (int)dateComponents.getMonth());
         }
 
+        int currentWeekday  = -1;
+        int proposedWeekday = -1;
         if (dateComponents.getWeekday() instanceof Integer) {
+            currentWeekday  = calendar.get(Calendar.DAY_OF_WEEK);
+            proposedWeekday = (int)dateComponents.getWeekday();
             calendar.set(Calendar.DAY_OF_WEEK, (int)dateComponents.getWeekday());
         }
 
@@ -65,6 +69,14 @@ public class CalendarNotificationTrigger extends NotificationTrigger {
 
         if (dateComponents.getSecond() instanceof Integer) {
             calendar.set(Calendar.SECOND, (int)dateComponents.getSecond());
+        }
+
+        if (proposedWeekday != -1 && currentWeekday != -1) {
+            if (proposedWeekday == currentWeekday) {
+                calendar.setTimeInMillis(
+                    calendar.getTimeInMillis() + INTERVAL_WEEK
+                );
+            }
         }
 
         return calendar.getTimeInMillis();

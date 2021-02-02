@@ -12,7 +12,7 @@ public class VersionFunction implements FREFunction {
     public FREObject call(FREContext context, FREObject[] args) {
         Log.d(Notifications.TAG, "RequestAuthorizationFunction");
         try {
-            return FREObject.newObject("12");
+            return FREObject.newObject("19");
         } catch (FREWrongThreadException e) {
             e.printStackTrace();
         }

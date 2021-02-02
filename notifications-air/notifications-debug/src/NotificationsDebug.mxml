@@ -73,7 +73,7 @@
         private function createWeeklyNotificationTrigger(): CalendarNotificationTrigger {
             var now: Date = new Date();
             var components: DateComponents = new DateComponents();
-            components.weekday = new Int(2);
+            components.weekday = new Int(int(now.day + 1) % 7);
             components.hour = new Int(10);
             components.minute = new Int(0);
             var trigger: CalendarNotificationTrigger = new CalendarNotificationTrigger(components, true);
@@ -92,7 +92,11 @@
         private function createYearlyNotificationTrigger(): CalendarNotificationTrigger {
             var now: Date = new Date();
             var components: DateComponents = new DateComponents();
-            components.month = new Int((now.month + 1) % 12);
+            var month: int = (now.month + 0 * 3) % 12;
+            if (month <= now.getMonth()) {
+                components.year = new Int(int(now.getFullYear() + 1));
+            }
+            components.month = new Int(month + 1);
             components.day = new Int(now.date);
             components.hour = new Int(10);
             components.minute = new Int(0);
@@ -110,7 +114,8 @@
             content.sound = new NotificationSound("sub.caf");
 //                content.sound = new NotificationSound("alert_tone.mp3");
 
-            var trigger: NotificationTrigger = createDailyNotificationTrigger();
+//            var trigger: NotificationTrigger = createWeeklyNotificationTrigger();
+            var trigger: NotificationTrigger = createYearlyNotificationTrigger();
 
             var request: NotificationRequest = new NotificationRequest(1, content, trigger);
             request.setChannelId("my_channel");
